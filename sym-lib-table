@@ -2,4 +2,6 @@
 	(version 7)
 	(lib (name "KomModul_TragFluegel-rescue") (type "KiCad") (uri "${KIPRJMOD}/KomModul_TragFluegel-rescue.kicad_sym") (options "") (descr ""))
 	(lib (name "KomModul_TragFluegel-cache") (type "Legacy") (uri "C:/Semester6/Projektarbeit/Unterlagen_vorarbeit/Unterlagen_Bachelorarbeit/BachelorThesis_FlorianWalter_294585_KommModul_Tragfluegelboot/Layout_Schaltplan_KiCAD/KomModul_TragFluegel-cache.lib") (options "") (descr "Veraltete Projektcache-Bibliothek"))
+	(lib (name "Lib_Projektarbeit") (type "KiCad") (uri "${KIPRJMOD}/Lib_Projektarbeit.kicad_sym") (options "") (descr ""))
+	(lib (name "Library_Projektarbeit") (type "KiCad") (uri "${KIPRJMOD}/Library_Projektarbeit.kicad_sym") (options "") (descr ""))
 )
