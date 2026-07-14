@@ -12201,6 +12201,16 @@
 		)
 		(uuid "08de5f87-82bf-42c1-8091-34a3ca97a48e")
 	)
+	(text "Maxim der Manyak"
+		(exclude_from_sim no)
+		(at 258.318 91.948 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6929c9cd-871e-441b-8e34-50369a7b1e1e")
+	)
 	(text "UART_RS485_Wandler"
 		(exclude_from_sim no)
 		(at 12.954 84.328 0)
