@@ -1,0 +1,98 @@
+(version 1.1)
+#----------------------------------------------------------------------------------------------------
+# AISLER custom DRC rules.
+# Make Hardware less Hard. 
+#----------------------------------------------------------------------------------------------------
+# We created these custom rules to warn you if your design hits our manufacturing bounderies. 
+# You can disable the custom rules by commenting them out, though we advise against it.  
+# These rules are valid as of May 2024, please check for updated ones on our forum.
+# Please also note that these rules do not catch every single manufacturing limit. 
+# If you are not certain please check the documentation on our website. 
+#----------------------------------------------------------------------------------------------------
+
+# As our tooling is finite we only support certain trough hole sizes. 
+# Please keep the plated trough holes below 5.6mm in diameter. 
+# We provide a community post for more details: 
+# https://community.aisler.net/t/plated-and-non-plated-holes/50
+
+(rule "Max Drill Hole Size PTH"
+    (constraint hole_size (max 5.6mm))
+    (condition "A.Pad_Type == 'Through-hole'"))
+
+#----------------------------------------------------------------------------------------------------
+# We dont support micro or buried vias
+
+(rule "Disallow buried via"
+   (constraint disallow buried_via))
+
+(rule "Disallow micro via"
+   (constraint disallow micro_via))
+
+#----------------------------------------------------------------------------------------------------
+# The Soldermask is pulled back by a bit to account for slight missalignment during manufacturing. 
+# We do this on our own, please keep the soldermask margin set to 0. 
+ 
+(rule "Disallow solder mask margin overrides"
+    (constraint assertion "A.Soldermask_Margin_Override == 0mm || A.Soldermask_Margin_Override == null")
+    (condition "A.Type == 'Pad'"))
+
+#----------------------------------------------------------------------------------------------------
+# Additional rules for AISLER 2 Layer 1.6 mm 35 um HASL
+# These rules supplement the original AISLER rules above.
+#----------------------------------------------------------------------------------------------------
+
+# Blind vias are not supported.
+
+(rule "Disallow blind via"
+    (constraint disallow blind_via))
+
+# Standard through vias:
+# drill diameter 0.30 mm to 0.45 mm.
+
+(rule "AISLER through via drill size"
+    (constraint hole_size (min 0.30mm) (max 0.45mm))
+    (condition "A.Type == 'Via' && A.Via_Type == 'Through'"))
+
+# Every dimension of an SMD pad must be at least 0.20 mm.
+
+(rule "AISLER minimum SMD pad size"
+    (constraint assertion "A.Size_X >= 0.20mm && A.Size_Y >= 0.20mm")
+    (condition "A.Pad_Type == 'SMD'"))
+
+# Round plated through-hole component pads:
+# drill diameter 0.50 mm to 5.60 mm,
+# annular ring at least 0.30 mm.
+
+(rule "AISLER round PTH size"
+    (constraint hole_size (min 0.50mm) (max 5.60mm))
+    (constraint annular_width (min 0.30mm))
+    (condition "A.Pad_Type == 'Through-hole' && A.Hole_Size_X == A.Hole_Size_Y"))
+
+# Round non-plated mechanical holes:
+# drill diameter 0.50 mm to 5.60 mm.
+
+(rule "AISLER round NPTH size"
+    (constraint hole_size (min 0.50mm) (max 5.60mm))
+    (condition "A.Pad_Type == 'NPTH, mechanical' && A.Hole_Size_X == A.Hole_Size_Y"))
+
+# Non-plated slots:
+# slot width at least 0.80 mm;
+# AISLER specifies no maximum slot width.
+
+(rule "AISLER NPTH slot size"
+    (constraint hole_size (min 0.80mm))
+    (condition "A.Pad_Type == 'NPTH, mechanical' && A.Hole_Size_X != A.Hole_Size_Y"))
+
+# Plated slots:
+# slot width 0.70 mm to 2.60 mm,
+# annular ring at least 0.30 mm.
+#
+# KiCad checks the smaller slot dimension against hole_size (min).
+# The assertion below checks that the smaller dimension does not
+# exceed the AISLER maximum slot diameter of 2.60 mm.
+
+(rule "AISLER PTH slot size"
+    (constraint hole_size (min 0.70mm))
+    (constraint assertion "A.Hole_Size_X <= 2.60mm || A.Hole_Size_Y <= 2.60mm")
+    (constraint annular_width (min 0.30mm))
+    (condition "A.Pad_Type == 'Through-hole' && A.Hole_Size_X != A.Hole_Size_Y"))

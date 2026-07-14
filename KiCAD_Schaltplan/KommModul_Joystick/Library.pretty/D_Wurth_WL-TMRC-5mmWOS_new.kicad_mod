@@ -1,0 +1,379 @@
+(footprint "D_Wurth_WL-TMRC-5mmWOS_new"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Mono-color Round Color, body 5.9x5.9x8.7mm, https://www.we-online.com/en/components/products/WL-TMRC#/articles/WL-TMRC-5MM-WOS")
+	(tags "Architectural LED lighting")
+	(property "Reference" "D5"
+		(at 1.27 -4.2 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "485c0a1b-a102-42a2-b199-21a363ea9ced")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "5mmWOS_151051RS11000"
+		(at 1.27 4.2 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cdece987-4c88-4bc8-8894-6f46ef5a30e5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.we-online.com/catalog/datasheet/151051RS11000.pdf?ki"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "af7d96c0-73d0-4b1d-ae90-aa9ba1c4271c")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" "Mono-color Round Color"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b2c65446-3c8f-41f7-8764-42c730a77bca")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Manufacturer" "Wurth Elektronik"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d525a7bd-fa42-4d4b-8e58-7ad97803e0cb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer URL" "https://www.we-online.com"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "62c88852-6525-4121-8832-433c744cb279")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Created Date" "20260324"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4b2fd828-d826-40dd-9147-32c26cbfd314")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Series" "WL-TMRC"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "64df6430-4426-495a-aed7-eac6757f0707")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Part Number" "151051RS11000"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d59217d2-964b-4cae-a993-f2e0fd36e741")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Size" "5mmWOS"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fc376fd0-891a-4b48-a5e4-1e3714bcb69e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Mounting Technology" "THT"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e1c65a55-c16a-438a-8afa-7169a2e3fe38")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Automotive" "No"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d89c04e3-5644-4849-a1cb-a5cf2f9cb3c8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "λDom typ.(nm)" "645 nm"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ea33a3ba-4766-4cea-b373-ba982b8552f1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Emitting Color" "Red"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0e047bce-6e30-486b-b8ab-a3a580d87070")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "λPeak typ.(nm)" "650 nm"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f5945bb6-8e09-4ee1-90e3-bcabd664bb18")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "IV typ.(mcd)" "30 mcd"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "82aab0e6-90cf-43e0-870e-8092ef699a09")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "VF typ.(V)" "2.1 V"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4bd7d40a-28b9-4890-a9cf-167830929e16")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Chip Technology" "AlGaInP"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fdffacac-7379-4705-99a2-6af29a6254fe")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "2θ50% typ.(°)" "60 °"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "95dc2476-423a-44d5-9bb5-765e898cb446")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "*WL-TMRC*5mmWOS*")
+	(sheetname "/")
+	(sheetfile "KommModul_Joystick.kicad_sch")
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.413 0)
+		(end -2.113 0)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "28510d4a-d1f0-4e44-9b33-587116889f20")
+	)
+	(fp_line
+		(start -2.263 -0.15)
+		(end -2.263 0.15)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "9712525a-0b44-4a84-b3f3-eac3377c636b")
+	)
+	(fp_line
+		(start 3.87 -1.38)
+		(end 3.87 1.38)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c5783e17-91c9-43f1-bdaa-013fa02aac29")
+	)
+	(fp_arc
+		(start 3.87 1.38)
+		(mid -1.761511 0)
+		(end 3.87 -1.38)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e84998aa-ed22-4a91-9708-8e0baac2b520")
+	)
+	(fp_circle
+		(center 1.27 0)
+		(end 4.47 0)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "b72d9aa8-395e-4fd7-a34c-6f56fe37b76f")
+	)
+	(fp_line
+		(start 3.77 -1.44)
+		(end 3.77 1.44)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "3f9fe3a6-7859-4103-9511-05549623697e")
+	)
+	(fp_arc
+		(start 3.77 1.439999)
+		(mid -1.654038 -0.000001)
+		(end 3.77 -1.44)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "17e77759-27cc-43ac-b8b5-4c41bf5010e0")
+	)
+	(fp_circle
+		(center 1.27 0)
+		(end 3.77 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "b0c00bbb-ce51-4ea0-b6db-11d549b77795")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 1.27 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "63c9f9a6-52f1-44a5-83ae-7048fa867048")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.075)
+			)
+		)
+	)
+	(pad "1" thru_hole rect
+		(at 0 0)
+		(size 1.6 1.6)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "3213800d-c7a2-4703-9554-1448262e3617")
+	)
+	(pad "2" thru_hole circle
+		(at 2.54 0)
+		(size 1.6 1.6)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d0c610fb-fa5a-48fe-907b-3742c8f59d64")
+	)
+	(embedded_fonts no)
+	(model "${WE_3DMODEL_DIR}/LED_THT_Wurth.3dshapes/D_Wurth_WL-TMRC-5mmWOS.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

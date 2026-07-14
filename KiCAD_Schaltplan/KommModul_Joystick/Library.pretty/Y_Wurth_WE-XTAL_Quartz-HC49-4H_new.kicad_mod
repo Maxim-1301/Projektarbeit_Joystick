@@ -1,0 +1,377 @@
+(footprint "Y_Wurth_WE-XTAL_Quartz-HC49-4H_new"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Quartz Crystal, body 11.35x4.85x13.2mm, https://www.we-online.com/en/components/products/WE-XTAL#/articles/HC49_4H")
+	(tags "THT")
+	(property "Reference" "Y1"
+		(at 2.44 -3.675 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "fdb1a2d5-fbf7-4cbb-b1b9-cdbce1688bd2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "16 MHz"
+		(at 2.44 3.675 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "75c2cc11-d9fd-4f83-bb71-4b404faa02bd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.we-online.com/catalog/datasheet/830058383B.pdf?ki"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9edd5567-2147-4490-a0ef-8d1ebcc77de8")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" "Quartz Crystal ED"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "96746f9c-08c8-4afb-a4c9-072ac87a50ec")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Manufacturer" "Wurth Elektronik"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b279cd1c-a612-4375-a91e-cf8ffa5bba3a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer URL" "https://www.we-online.com"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "df22c731-84a7-44b5-bffc-9d8e427eeeb2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Created Date" "20260401"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a11cd1a3-a5bb-4b6c-8b91-02d105c477b7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Series" "WE-XTAL"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cfdec5af-2532-454b-995a-147a402348db")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Part Number" "830058383B"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d76e4f70-e2f2-4fda-8654-8c9caf929ad5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Size" "HC49-4H"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2b46a59c-e9d7-4238-a415-e20cf82bac64")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Mounting Technology" "THT"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d32a9298-bd8d-4a91-937d-de34473053ad")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Automotive" "No"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3908e6d4-eda1-406d-b9aa-38a3ba447c78")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "f" "16 MHz"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "656c7a8f-0240-4c3d-b496-24769a6795bc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Application" "Processor, CAN, Bluetooth"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b1170c6b-7afe-46d3-ba90-eaa0d834678e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Tol. f" "±30ppm"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "40b686de-63e8-4c54-a229-1afa6f222245")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Stability (ppm)" "50.0"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "467bcbf5-3a5a-4b6f-b878-594b2a7e1970")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Cload (pF)" "20"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f7f40cd5-8dc2-41de-9f21-180225011ada")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Operating Temperature" "-40 °C up to +85 °C"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "660386e8-99b3-40ca-93c3-0f0a228bff90")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "*WE-XTAL*HC49-4H*")
+	(sheetname "/")
+	(sheetfile "KommModul_Joystick.kicad_sch")
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -0.92 -2.535)
+		(end 5.8 -2.535)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "837da274-ec90-4d60-9ffa-2fe74ccc1ac4")
+	)
+	(fp_line
+		(start 5.8 2.535)
+		(end -0.92 2.535)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "032208ec-683e-46b8-94cf-842ef7607721")
+	)
+	(fp_arc
+		(start -0.92 2.535)
+		(mid -3.346735 0)
+		(end -0.92 -2.535)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "cd3fa396-8f9f-47a8-ac24-a2590954dbd6")
+	)
+	(fp_arc
+		(start 5.8 -2.535)
+		(mid 8.226735 0)
+		(end 5.8 2.535)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "7f387179-9e28-40a6-8265-139c9f3a0428")
+	)
+	(fp_rect
+		(start -3.485 -2.675)
+		(end 8.365 2.675)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "1491ebc5-6e43-469b-8b11-bbffa62a12cb")
+	)
+	(fp_line
+		(start -0.81 -2.425)
+		(end 5.69 -2.425)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "84962160-891b-41a0-bef1-3678e1cb2d08")
+	)
+	(fp_line
+		(start 5.69 2.425)
+		(end -0.81 2.425)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "6eb627a3-e0f9-427b-9a50-b119657e1df2")
+	)
+	(fp_arc
+		(start -0.81 2.425)
+		(mid -3.235 0)
+		(end -0.81 -2.425)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "012f9138-3bb7-4f49-b8f7-1fd12dff4d68")
+	)
+	(fp_arc
+		(start 5.69 -2.425)
+		(mid 8.115 0)
+		(end 5.69 2.425)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "226cd10f-4349-4fd0-85a7-c2c6c0fd5b17")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 2.44 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "0b941cd9-48d5-447e-b416-ccf6771bf606")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.075)
+			)
+		)
+	)
+	(pad "1" thru_hole rect
+		(at 0 0)
+		(size 1.3 1.3)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7505b88b-a1d1-4a44-a47a-16cb8a78e3e1")
+	)
+	(pad "2" thru_hole circle
+		(at 4.88 0)
+		(size 1.3 1.3)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "55680723-2eaf-46ca-a2cb-dd2ddf8741d9")
+	)
+	(embedded_fonts no)
+	(model "${WE_3DMODEL_DIR}/Crystal_THT_Wurth.3dshapes/Y_Wurth_WE-XTAL_Quartz-HC49-4H.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -1,0 +1,281 @@
+(footprint "691242510004_new"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "J3"
+		(at 0 -6.635 0)
+		(layer "F.SilkS")
+		(uuid "90cb30b0-b88c-4f3c-8ba4-0d4f04ac67ad")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "691242510004_new"
+		(at 4.12 5.865 0)
+		(layer "F.Fab")
+		(uuid "5bf8ae30-a9d9-401b-a215-69b02435f657")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "5b68dbf1-6c2b-4732-8b4b-db99f5e4a571")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" "4 Position Wire to Board Terminal Block Horizontal with Board 0.200 (5.08mm) Through Hole"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "37c31ca8-786c-4a0e-a698-bbd336d752b1")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "MF" "Würth Elektronik"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f196a31c-a278-40f0-aea1-c4b631adc34f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Package" "None"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8d3b1891-0f57-408e-967d-0ed9e92f5aea")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Price" "None"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cdd716ea-bcc7-4161-ba4f-565c4cbb4e6a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "SnapEDA_Link" "https://www.snapeda.com/parts/691242510004/W%25C3%25BCrth+Elektronik+Midcom/view-part/?ref=snap"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3e0664e6-4189-4a4d-8f21-e3f9e766f629")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MP" "691242510004"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a5783e6e-3f43-43d9-a8b9-cfff327164c5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Availability" "In Stock"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "dcabd8ba-acd8-44ef-b8a6-e1fb3fa25c30")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Check_prices" "https://www.snapeda.com/parts/691242510004/W%25C3%25BCrth+Elektronik+Midcom/view-part/?ref=eda"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1c28e6be-8e7c-40b4-bc04-982728e7d1aa")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(sheetname "/")
+	(sheetfile "KommModul_Joystick.kicad_sch")
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -10.26 -5.3)
+		(end 10.26 -5.3)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ec338f6f-95f9-4a82-86ad-a145ebd741a1")
+	)
+	(fp_line
+		(start -10.26 4.7)
+		(end -10.26 -5.3)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "56d0f447-c07a-48dc-843a-1d1386e02611")
+	)
+	(fp_line
+		(start 10.26 -5.3)
+		(end 10.26 4.7)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7c93f9a6-a0cf-4b9e-8740-de34e8a17083")
+	)
+	(fp_line
+		(start 10.26 4.7)
+		(end -10.26 4.7)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3ad1124c-92e8-494e-8bda-faf0e928b198")
+	)
+	(fp_circle
+		(center -8.9 -2.1)
+		(end -8.8 -2.1)
+		(stroke
+			(width 0.4)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "a197fdc1-ad14-47f3-a11f-64ddbe970979")
+	)
+	(fp_poly
+		(pts
+			(xy -10.46 -5.5) (xy 10.46 -5.5) (xy 10.46 4.9) (xy -10.46 4.9)
+		)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.CrtYd")
+		(uuid "c2a964fb-5970-4036-83d0-488d7a540622")
+	)
+	(fp_line
+		(start -10.16 -5.2)
+		(end -10.16 4.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "007ddaec-adf0-4073-9ca4-8ea8168dab90")
+	)
+	(fp_line
+		(start -10.16 -5.2)
+		(end 10.16 -5.2)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "8f32d231-9328-448b-8a13-9b3c38f0af2c")
+	)
+	(fp_line
+		(start -10.16 4.6)
+		(end 10.16 4.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "ee2efa6f-2661-41d0-ab86-e313d40c6dc9")
+	)
+	(fp_line
+		(start 10.16 -5.2)
+		(end 10.16 4.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "112ec618-16f2-452f-b8c5-750e5986a06d")
+	)
+	(pad "1" thru_hole circle
+		(at -7.62 0)
+		(size 2.25 2.25)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "8cb760d8-cca7-4df8-abdf-ef87f512802f")
+	)
+	(pad "2" thru_hole circle
+		(at -2.54 0)
+		(size 2.25 2.25)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "ea2faead-2765-45f1-9c03-b3119ec085c0")
+	)
+	(pad "3" thru_hole circle
+		(at 2.54 0)
+		(size 2.25 2.25)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "f2c91493-3c2f-4b9c-a2f6-f5d8b4b29181")
+	)
+	(pad "4" thru_hole circle
+		(at 7.62 0)
+		(size 2.25 2.25)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "015a8779-a4dc-4fd6-aba4-55582531a620")
+	)
+	(embedded_fonts no)
+)
