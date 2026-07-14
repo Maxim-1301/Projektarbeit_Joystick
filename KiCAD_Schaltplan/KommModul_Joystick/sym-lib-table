@@ -3,4 +3,5 @@
 	(lib (name "symbols") (type "KiCad") (uri "C:/Users/maxim/Documents/KiCad-Library/symbols") (options "") (descr ""))
 	(lib (name "Terminal_Wuerth_Block") (type "KiCad") (uri "C:/Semester6/Projektarbeit/Projektarbeit_Joystick/Terminal_Wuerth_Block.pretty") (options "") (descr ""))
 	(lib (name "TLV1117LV33DCYR") (type "KiCad") (uri "C:/Semester6/Projektarbeit/Projektarbeit_Joystick/TLV1117LV33DCYR.kicad_sym") (options "") (descr ""))
+	(lib (name "691242510004") (type "KiCad") (uri "C:/Semester6/Projektarbeit/Projektarbeit_Joystick/691242510004.kicad_sym") (options "") (descr ""))
 )
