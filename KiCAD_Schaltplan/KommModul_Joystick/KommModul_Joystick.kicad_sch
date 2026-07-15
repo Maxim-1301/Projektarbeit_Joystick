@@ -12201,16 +12201,6 @@
 		)
 		(uuid "08de5f87-82bf-42c1-8091-34a3ca97a48e")
 	)
-	(text "Maxim der Manyak"
-		(exclude_from_sim no)
-		(at 258.318 91.948 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "6929c9cd-871e-441b-8e34-50369a7b1e1e")
-	)
 	(text "UART_RS485_Wandler"
 		(exclude_from_sim no)
 		(at 12.954 84.328 0)
@@ -12624,28 +12614,128 @@
 		(uuid "0509af8b-6e5a-4922-b589-579afed45279")
 	)
 	(no_connect
+		(at 194.31 147.32)
+		(uuid "0b4929b5-6b35-4fba-bd9a-6b397fa5714c")
+	)
+	(no_connect
+		(at 173.99 147.32)
+		(uuid "0db90898-bb17-43fe-841e-8b08319b0f44")
+	)
+	(no_connect
+		(at 189.23 111.76)
+		(uuid "1375e947-b9f1-4c57-a9ac-1fbcb50f7417")
+	)
+	(no_connect
+		(at 153.67 111.76)
+		(uuid "14995a32-7ee4-4cdd-9604-f3e8ff50c1f5")
+	)
+	(no_connect
+		(at 161.29 111.76)
+		(uuid "14d9a778-1487-452b-9e66-4278d2dc30c1")
+	)
+	(no_connect
+		(at 176.53 147.32)
+		(uuid "157aba3d-ce5d-44bd-98b1-04c598e0b56e")
+	)
+	(no_connect
+		(at 212.09 147.32)
+		(uuid "1856560b-a831-4b8c-82a3-289af5c00798")
+	)
+	(no_connect
 		(at 182.88 49.53)
 		(uuid "18ac15c0-d7ef-4b8b-8ecd-52f92fa7681c")
+	)
+	(no_connect
+		(at 201.93 147.32)
+		(uuid "19f7d417-783f-4b19-9f81-052ab4e74ac1")
+	)
+	(no_connect
+		(at 151.13 111.76)
+		(uuid "1ba447ec-387a-4424-8b42-329ed3e4429e")
+	)
+	(no_connect
+		(at 207.01 111.76)
+		(uuid "230a8f49-8570-4772-bfda-1599332febdb")
+	)
+	(no_connect
+		(at 176.53 111.76)
+		(uuid "288ab348-1843-49fd-ac66-a362f8929cf9")
+	)
+	(no_connect
+		(at 168.91 147.32)
+		(uuid "385e915b-d655-4ff8-9775-7ae3b455efe1")
+	)
+	(no_connect
+		(at 179.07 111.76)
+		(uuid "3a1e0e8f-15b7-48cd-8412-ef70a122817b")
+	)
+	(no_connect
+		(at 158.75 111.76)
+		(uuid "3bbf7816-7911-4c2c-9c6c-af73b28dbda0")
+	)
+	(no_connect
+		(at 217.17 111.76)
+		(uuid "41ca69d2-aedc-4e93-88cd-802f1b8a1715")
+	)
+	(no_connect
+		(at 163.83 111.76)
+		(uuid "5775f6ee-b092-437e-9460-18d2e08411e6")
+	)
+	(no_connect
+		(at 214.63 111.76)
+		(uuid "58948287-1570-41dc-ab3e-e40603b18633")
 	)
 	(no_connect
 		(at 182.88 69.85)
 		(uuid "64abc9d5-15e1-48b8-aba2-b8f2831d8169")
 	)
 	(no_connect
+		(at 204.47 147.32)
+		(uuid "6dbadf7b-b378-4389-9f34-7a15f6e7303c")
+	)
+	(no_connect
 		(at 182.88 64.77)
 		(uuid "716a6340-61c1-4635-925d-49229af2a2e5")
+	)
+	(no_connect
+		(at 209.55 147.32)
+		(uuid "7eaa3ba3-0615-49d8-93be-5179abe12370")
+	)
+	(no_connect
+		(at 171.45 111.76)
+		(uuid "8233cd16-00bb-42aa-93e0-af8acecbd02a")
 	)
 	(no_connect
 		(at 243.84 63.5)
 		(uuid "8864cb2a-0979-4631-8d70-8d40a01c3812")
 	)
 	(no_connect
+		(at 156.21 111.76)
+		(uuid "8b4ea529-3b1a-4423-9447-8209f5005700")
+	)
+	(no_connect
+		(at 196.85 147.32)
+		(uuid "9d2bbde3-409e-412e-b67e-c9bd18d1017d")
+	)
+	(no_connect
+		(at 204.47 111.76)
+		(uuid "9fde2acc-647d-4944-87ee-a56a81e9020d")
+	)
+	(no_connect
 		(at 182.88 54.61)
 		(uuid "aa676192-c8ce-48f7-8ebb-22a05cc1c23d")
 	)
 	(no_connect
+		(at 181.61 147.32)
+		(uuid "ac60bb74-f791-44c3-9def-d4e077e01a8a")
+	)
+	(no_connect
 		(at 243.84 55.88)
 		(uuid "b693f6cf-47d0-40a9-b43f-665bac64c0d4")
+	)
+	(no_connect
+		(at 173.99 111.76)
+		(uuid "b9df79cc-a992-48a9-9d2e-2ee1a5d59608")
 	)
 	(no_connect
 		(at 243.84 66.04)
@@ -12656,8 +12746,32 @@
 		(uuid "c5976b6b-705c-4c20-98cd-c1f71351d332")
 	)
 	(no_connect
+		(at 207.01 147.32)
+		(uuid "cb1db4d0-8295-41e5-8498-8d5d7e67d87d")
+	)
+	(no_connect
 		(at 168.91 57.15)
 		(uuid "d014a36a-e8d3-45e7-a12c-f00ea7bb0dcb")
+	)
+	(no_connect
+		(at 181.61 111.76)
+		(uuid "d1bb595b-1320-4672-82cc-1a2dda358366")
+	)
+	(no_connect
+		(at 194.31 111.76)
+		(uuid "dbe02d4f-5c0f-470c-9f6f-1a47c51708a0")
+	)
+	(no_connect
+		(at 191.77 147.32)
+		(uuid "e48c5f39-370b-4859-9452-d1df7b6b950c")
+	)
+	(no_connect
+		(at 199.39 147.32)
+		(uuid "e4fa32cd-7ef8-4a97-934f-043eb1d2cdbe")
+	)
+	(no_connect
+		(at 179.07 147.32)
+		(uuid "e9f9a99b-e3f2-4398-9dc1-16c9c58bf79c")
 	)
 	(wire
 		(pts
