@@ -12424,6 +12424,12 @@
 		(uuid "7f2d4d55-d130-45fd-8b04-a9bcd39efe36")
 	)
 	(junction
+		(at 142.24 162.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "86ffe8be-156e-48a6-9bd7-a91b513042f9")
+	)
+	(junction
 		(at 76.2 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -13185,16 +13191,6 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 161.29) (xy 142.24 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2699db8b-dc5d-4b1c-991c-2f2a8b00adea")
-	)
-	(wire
-		(pts
 			(xy 148.59 24.13) (xy 146.05 24.13)
 		)
 		(stroke
@@ -13875,6 +13871,16 @@
 	)
 	(wire
 		(pts
+			(xy 142.24 162.56) (xy 142.24 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "646467b2-1343-462f-961a-c2520d575af4")
+	)
+	(wire
+		(pts
 			(xy 104.14 135.89) (xy 104.14 139.7)
 		)
 		(stroke
@@ -14255,7 +14261,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 171.45) (xy 132.08 176.53)
+			(xy 132.08 175.26) (xy 132.08 180.34)
 		)
 		(stroke
 			(width 0)
@@ -14492,6 +14498,16 @@
 			(type default)
 		)
 		(uuid "9a02824f-d40c-4a83-a379-a64ebdecadf9")
+	)
+	(wire
+		(pts
+			(xy 142.24 162.56) (xy 142.24 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a24dbaa-1517-4d47-8c7a-3991d6fe92e4")
 	)
 	(wire
 		(pts
@@ -16286,6 +16302,362 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "symbols:1206_H0.8_885012208030")
+		(at 138.43 162.56 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "02195537-c261-4395-bfef-3fa46e12dac9")
+		(property "Reference" "C19"
+			(at 138.43 157.734 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100 nF"
+			(at 161.29 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD_Wurth:C_Wurth_WCAP-CSGP-1206_H0.8"
+			(at 158.75 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/catalog/datasheet/885012208030.pdf?ki"
+			(at 156.21 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "MLCCs 16 V(DC) ED"
+			(at 138.43 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Wurth Elektronik"
+			(at 153.67 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer URL" "https://www.we-online.com"
+			(at 151.13 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Created Date" "20251008"
+			(at 148.59 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Series" "WCAP-CSGP"
+			(at 146.05 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Size" "1206_H0.8"
+			(at 143.51 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mounting Technology" "SMT"
+			(at 140.97 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Part Number" "885012208030"
+			(at 139.7001 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Capacitance" "100 nF"
+			(at 138.684 159.512 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "16.0"
+			(at 134.6201 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "C" "100 nF"
+			(at 135.89 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Tol. C" "±10%"
+			(at 133.35 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "VR (V (DC))" "16.0"
+			(at 130.81 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Operating Temperature" "-55 °C up to +125 °C"
+			(at 128.27 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "DF (%)" "3.5"
+			(at 125.73 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "RISO" "5 Gohm"
+			(at 123.19 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Ceramic Type" "X7R Class II"
+			(at 120.65 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "L (mm)" "3.2"
+			(at 118.11 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "W (mm)" "1.6"
+			(at 115.57 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "H (mm)" "0.8"
+			(at 113.03 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Fl (mm)" "0.6"
+			(at 110.49 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Q (%)" "–"
+			(at 107.95 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Demoboard" "–"
+			(at 105.41 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Critical Parameter" ""
+			(at 130.81 162.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "5111272f-2a34-46d3-a5ab-c4e02d4dec83")
+		)
+		(pin "2"
+			(uuid "77016856-e6b0-4026-91d2-b2bd42a66ff7")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -24593,6 +24965,85 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 134.62 162.56 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a8f28084-0d1c-47f1-9e12-de883ef4f7f3")
+		(property "Reference" "#PWR028"
+			(at 128.27 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 130.81 162.5599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 134.62 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 134.62 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f0a2e4fb-9328-4ec2-9c21-8b9085dbf8be")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "symbols:1206_R_560112132018")
 		(at 191.77 48.26 0)
 		(unit 1)
@@ -28030,7 +28481,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 132.08 176.53 0)
+		(at 132.08 180.34 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -28041,7 +28492,7 @@
 		(fields_autoplaced yes)
 		(uuid "cd1f5759-7706-49b7-926e-c1a0a532b291")
 		(property "Reference" "#PWR04"
-			(at 132.08 182.88 0)
+			(at 132.08 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28052,7 +28503,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 132.08 181.61 0)
+			(at 132.08 185.42 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28062,7 +28513,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 132.08 176.53 0)
+			(at 132.08 180.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28073,7 +28524,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 132.08 176.53 0)
+			(at 132.08 180.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28084,7 +28535,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 132.08 176.53 0)
+			(at 132.08 180.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30061,7 +30512,7 @@
 	)
 	(symbol
 		(lib_id "symbols:430182080816")
-		(at 137.16 166.37 270)
+		(at 137.16 170.18 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -30072,7 +30523,7 @@
 		(fields_autoplaced yes)
 		(uuid "ea4cfce9-ba8d-41b0-a5ee-0e7af112e7c7")
 		(property "Reference" "SW1"
-			(at 144.78 166.37 0)
+			(at 144.78 170.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -30082,7 +30533,7 @@
 			)
 		)
 		(property "Value" "430182080816"
-			(at 160.02 179.07 0)
+			(at 160.02 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30094,7 +30545,7 @@
 			)
 		)
 		(property "Footprint" "Switch_SMD_Wurth:SW_Wurth_WS-TASV_430182080816"
-			(at 157.48 179.07 0)
+			(at 157.48 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30106,7 +30557,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.we-online.com/catalog/datasheet/430182080816.pdf?ki"
-			(at 154.94 179.07 0)
+			(at 154.94 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30118,7 +30569,7 @@
 			)
 		)
 		(property "Description" "SMT Tact Switch 6x6 mm"
-			(at 137.16 166.37 0)
+			(at 137.16 170.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30129,7 +30580,7 @@
 			)
 		)
 		(property "Manufacturer" "Wurth Elektronik"
-			(at 152.4 179.07 0)
+			(at 152.4 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30141,7 +30592,7 @@
 			)
 		)
 		(property "Manufacturer URL" "https://www.we-online.com"
-			(at 149.86 179.07 0)
+			(at 149.86 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30153,7 +30604,7 @@
 			)
 		)
 		(property "Created Date" "20260204"
-			(at 147.32 179.07 0)
+			(at 147.32 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30165,7 +30616,7 @@
 			)
 		)
 		(property "Series" "WS-TASV"
-			(at 144.78 179.07 0)
+			(at 144.78 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30177,7 +30628,7 @@
 			)
 		)
 		(property "Part Number" "430182080816"
-			(at 142.24 179.07 0)
+			(at 142.24 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30189,7 +30640,7 @@
 			)
 		)
 		(property "Mounting Technology" "SMT"
-			(at 139.7 179.07 0)
+			(at 139.7 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30201,7 +30652,7 @@
 			)
 		)
 		(property "H (mm)" "8.0"
-			(at 137.16 179.07 0)
+			(at 137.16 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30213,7 +30664,7 @@
 			)
 		)
 		(property "Operation Force (g)" "160.0"
-			(at 134.62 179.07 0)
+			(at 134.62 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30225,7 +30676,7 @@
 			)
 		)
 		(property "Electrical Life (Cycles)" "1000000"
-			(at 132.08 179.07 0)
+			(at 132.08 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30237,7 +30688,7 @@
 			)
 		)
 		(property "Actuator Color" "Black"
-			(at 129.54 179.07 0)
+			(at 129.54 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30249,7 +30700,7 @@
 			)
 		)
 		(property "Vaporphase process" "not specified"
-			(at 127 179.07 0)
+			(at 127 182.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
