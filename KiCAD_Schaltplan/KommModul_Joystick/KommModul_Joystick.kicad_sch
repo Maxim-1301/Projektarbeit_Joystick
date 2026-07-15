@@ -818,6 +818,129 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Interface_UART:SP3485EN"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -12286,7 +12409,7 @@
 		(uuid "0f002bea-aa59-4390-b3c0-d60e8ef8bd88")
 	)
 	(junction
-		(at 71.12 154.94)
+		(at 71.12 149.86)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "13b648ea-1c71-47fd-800a-ba14332a92f6")
@@ -12310,12 +12433,6 @@
 		(uuid "18c51607-66b3-4141-a8a5-a5d6c10cc8b0")
 	)
 	(junction
-		(at 110.49 96.52)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "229aee4b-3710-4ced-9fab-87cede302ae4")
-	)
-	(junction
 		(at 120.65 154.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12326,12 +12443,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2730c77c-5dbe-4da3-a9b9-5dbe701ced01")
-	)
-	(junction
-		(at 53.34 143.51)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2c2dcb12-2643-4676-8bc3-65bb61251bd7")
 	)
 	(junction
 		(at 257.81 43.18)
@@ -12388,7 +12499,7 @@
 		(uuid "5890c4b1-5cbc-445b-8892-008101303f0a")
 	)
 	(junction
-		(at 71.12 162.56)
+		(at 71.12 157.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5d206851-ca79-4bbc-bbfe-46c8ef5a976b")
@@ -12566,6 +12677,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e2173c07-b9f6-4a83-8ef1-198aebe8ecb8")
+	)
+	(junction
+		(at 53.34 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ec786204-eb1b-4283-b479-a314486317c4")
 	)
 	(junction
 		(at 261.62 48.26)
@@ -12801,7 +12918,7 @@
 	)
 	(polyline
 		(pts
-			(xy 12.7 187.96) (xy 12.7 81.28)
+			(xy 12.7 196.85) (xy 12.7 80.01)
 		)
 		(stroke
 			(width 0)
@@ -13111,6 +13228,16 @@
 	)
 	(wire
 		(pts
+			(xy 203.2 68.58) (xy 203.2 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d960158-4f8d-4f94-8de1-796ffe149d6d")
+	)
+	(wire
+		(pts
 			(xy 158.75 41.91) (xy 148.59 41.91)
 		)
 		(stroke
@@ -13128,6 +13255,16 @@
 			(type default)
 		)
 		(uuid "1e0baec2-ce68-41a7-9655-d7c1f3e91a60")
+	)
+	(wire
+		(pts
+			(xy 189.23 67.31) (xy 189.23 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e26dd0c-c5c8-4f40-bb11-ab18e6538dfe")
 	)
 	(wire
 		(pts
@@ -13161,6 +13298,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 19.05) (xy 115.57 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21d1dfad-e3ae-4167-99aa-1883be388eb8")
+	)
+	(wire
+		(pts
 			(xy 229.87 107.95) (xy 229.87 111.76)
 		)
 		(stroke
@@ -13168,6 +13315,16 @@
 			(type default)
 		)
 		(uuid "223051a0-dba7-438c-9166-c8ba944b66a6")
+	)
+	(wire
+		(pts
+			(xy 30.48 190.5) (xy 30.48 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2244edf9-4a20-4ddb-ad96-812166aba60c")
 	)
 	(wire
 		(pts
@@ -13181,7 +13338,7 @@
 	)
 	(polyline
 		(pts
-			(xy 91.44 187.96) (xy 12.7 187.96)
+			(xy 91.44 196.85) (xy 12.7 196.85)
 		)
 		(stroke
 			(width 0)
@@ -13229,6 +13386,16 @@
 		)
 		(uuid "299afa6b-de09-4009-8325-caa126943f58")
 	)
+	(wire
+		(pts
+			(xy 13.97 189.23) (xy 13.97 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b414671-baa5-4457-9849-dfc9e752d5c7")
+	)
 	(polyline
 		(pts
 			(xy 219.71 72.39) (xy 283.21 72.39)
@@ -13241,7 +13408,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 154.94) (xy 71.12 154.94)
+			(xy 63.5 149.86) (xy 71.12 149.86)
 		)
 		(stroke
 			(width 0)
@@ -13271,7 +13438,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 96.52) (xy 111.76 96.52)
+			(xy 107.95 96.52) (xy 111.76 96.52)
 		)
 		(stroke
 			(width 0)
@@ -13288,6 +13455,16 @@
 			(type default)
 		)
 		(uuid "32809c88-cdfc-4e1f-a041-d4a2d9924764")
+	)
+	(wire
+		(pts
+			(xy 189.23 68.58) (xy 191.77 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32a7ffb9-a80b-4c9e-a7e5-122d681ac3e4")
 	)
 	(wire
 		(pts
@@ -13411,7 +13588,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 162.56) (xy 74.93 162.56)
+			(xy 71.12 157.48) (xy 74.93 157.48)
 		)
 		(stroke
 			(width 0)
@@ -13531,6 +13708,16 @@
 	)
 	(wire
 		(pts
+			(xy 118.11 19.05) (xy 115.57 19.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "450fb1b7-bbd6-40c3-a4d7-d565be20f1ff")
+	)
+	(wire
+		(pts
 			(xy 17.78 20.32) (xy 43.18 20.32)
 		)
 		(stroke
@@ -13538,16 +13725,6 @@
 			(type default)
 		)
 		(uuid "4526f3b4-2484-499c-b9a9-ea5a8bfa25a2")
-	)
-	(wire
-		(pts
-			(xy 107.95 96.52) (xy 110.49 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "45380372-8168-4cd1-9ece-9cbc71626fb6")
 	)
 	(wire
 		(pts
@@ -13781,7 +13958,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 154.94) (xy 74.93 154.94)
+			(xy 71.12 149.86) (xy 74.93 149.86)
 		)
 		(stroke
 			(width 0)
@@ -13811,7 +13988,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 154.94) (xy 63.5 156.21)
+			(xy 63.5 149.86) (xy 63.5 151.13)
 		)
 		(stroke
 			(width 0)
@@ -13848,6 +14025,16 @@
 			(type default)
 		)
 		(uuid "5f116ca6-e90c-4ff6-9de0-0dcda95fdf9e")
+	)
+	(wire
+		(pts
+			(xy 53.34 175.26) (xy 53.34 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f1fd7aa-e62f-4072-8fe8-5c916199603e")
 	)
 	(wire
 		(pts
@@ -14031,6 +14218,16 @@
 	)
 	(wire
 		(pts
+			(xy 205.74 68.58) (xy 203.2 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7036ea9a-285d-4a05-944e-86960e7c8025")
+	)
+	(wire
+		(pts
 			(xy 182.88 59.69) (xy 186.69 59.69)
 		)
 		(stroke
@@ -14058,6 +14255,16 @@
 			(type default)
 		)
 		(uuid "736b1944-c4d2-46a9-91f6-7a67f6bea031")
+	)
+	(wire
+		(pts
+			(xy 189.23 77.47) (xy 191.77 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74e764dc-3998-42de-8115-aa4487c62e24")
 	)
 	(wire
 		(pts
@@ -14231,7 +14438,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 162.56) (xy 71.12 162.56)
+			(xy 63.5 157.48) (xy 71.12 157.48)
 		)
 		(stroke
 			(width 0)
@@ -14361,7 +14568,17 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 162.56) (xy 63.5 161.29)
+			(xy 72.39 181.61) (xy 72.39 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f4285e2-3184-4c0b-b720-ace9a38ec6d2")
+	)
+	(wire
+		(pts
+			(xy 63.5 157.48) (xy 63.5 156.21)
 		)
 		(stroke
 			(width 0)
@@ -14548,6 +14765,16 @@
 			(type default)
 		)
 		(uuid "9efaef2c-88e6-4840-9556-15b8abc446b7")
+	)
+	(wire
+		(pts
+			(xy 118.11 27.94) (xy 115.57 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a02a82f9-627f-4a95-ac62-93c5740e1e3c")
 	)
 	(wire
 		(pts
@@ -14971,6 +15198,16 @@
 	)
 	(wire
 		(pts
+			(xy 30.48 181.61) (xy 30.48 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c548e19c-04b3-49d6-a1a4-5375da09dd08")
+	)
+	(wire
+		(pts
 			(xy 17.78 27.94) (xy 21.59 27.94)
 		)
 		(stroke
@@ -14998,16 +15235,6 @@
 			(type dash)
 		)
 		(uuid "ca9c2d31-fde0-402f-a8d3-860c4c8de12e")
-	)
-	(wire
-		(pts
-			(xy 110.49 95.25) (xy 110.49 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb9d3ed9-5173-4e83-beb2-54f62d864b7a")
 	)
 	(wire
 		(pts
@@ -15111,16 +15338,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 143.51) (xy 53.34 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d55ff1a9-7df9-4522-9103-ad98d4d779e7")
-	)
-	(wire
-		(pts
 			(xy 129.54 143.51) (xy 133.35 143.51)
 		)
 		(stroke
@@ -15149,9 +15366,19 @@
 		)
 		(uuid "da0caaca-6a39-47d8-b083-915575997330")
 	)
+	(wire
+		(pts
+			(xy 13.97 181.61) (xy 13.97 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db6f2edf-a6ab-4b8e-a7f3-fe8e2aa3ea23")
+	)
 	(polyline
 		(pts
-			(xy 12.7 81.28) (xy 91.44 81.28)
+			(xy 12.7 80.01) (xy 91.44 80.01)
 		)
 		(stroke
 			(width 0)
@@ -15218,6 +15445,16 @@
 			(type default)
 		)
 		(uuid "e2ad33e9-1e25-471d-8b25-2ba7294489ff")
+	)
+	(wire
+		(pts
+			(xy 189.23 76.2) (xy 189.23 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3e21045-aa82-4fbc-98ff-3bbd42f28034")
 	)
 	(wire
 		(pts
@@ -15291,7 +15528,7 @@
 	)
 	(polyline
 		(pts
-			(xy 91.44 81.28) (xy 91.44 187.96)
+			(xy 91.44 81.28) (xy 91.44 196.85)
 		)
 		(stroke
 			(width 0)
@@ -15411,6 +15648,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 27.94) (xy 115.57 26.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f302e532-dbc3-4651-b4a1-1b40df646746")
+	)
+	(wire
+		(pts
 			(xy 198.12 48.26) (xy 198.12 52.07)
 		)
 		(stroke
@@ -15438,6 +15685,26 @@
 			(type default)
 		)
 		(uuid "f54ae367-0537-451a-9f06-7cc9ede12580")
+	)
+	(wire
+		(pts
+			(xy 55.88 181.61) (xy 55.88 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7edfbfd-217b-454b-8c0c-1d9557031bca")
+	)
+	(wire
+		(pts
+			(xy 116.84 35.56) (xy 115.57 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8522e97-0cbb-481c-9e45-6f97827ba5ff")
 	)
 	(wire
 		(pts
@@ -15499,6 +15766,16 @@
 		)
 		(uuid "fe6afdb7-ad3d-48ba-a553-ce4a3374d30c")
 	)
+	(wire
+		(pts
+			(xy 55.88 189.23) (xy 55.88 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff09473e-5cdb-408e-b610-98f27bf17549")
+	)
 	(polyline
 		(pts
 			(xy 130.81 12.7) (xy 12.7 12.7)
@@ -15508,6 +15785,16 @@
 			(type dash)
 		)
 		(uuid "ffdb0e5c-3703-4ac1-b315-0e4cf94c156e")
+	)
+	(wire
+		(pts
+			(xy 73.66 189.23) (xy 73.66 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffe8850e-8965-4cdb-b058-8b3c713b9ae2")
 	)
 	(label "SWCLK"
 		(at 238.76 53.34 180)
@@ -15549,18 +15836,8 @@
 		)
 		(uuid "0bf605a6-0fd0-4d11-ac60-7c3b85de0266")
 	)
-	(label "VCC_3_3_VDD"
-		(at 110.49 95.25 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0d23b62d-ad16-42b0-9604-5f1e53bc5e97")
-	)
 	(label "UART_NRE_Mtr_B"
-		(at 43.18 161.29 180)
+		(at 43.18 156.21 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15569,7 +15846,7 @@
 		)
 		(uuid "0f407e27-1e01-4003-a5a2-5468641d0856")
 	)
-	(label "VCC_3_3_VDD"
+	(label "VCC_3_3V"
 		(at 118.11 128.27 90)
 		(effects
 			(font
@@ -15599,7 +15876,7 @@
 		)
 		(uuid "10c974a8-3808-4439-8af1-5ada19b738bc")
 	)
-	(label "VCC_3_3_VDD"
+	(label "VCC_3_3V"
 		(at 93.98 110.49 90)
 		(effects
 			(font
@@ -15610,7 +15887,7 @@
 		(uuid "14f8e5f0-3963-4c1f-85b4-9930bcd653a9")
 	)
 	(label "RS485_B_Mtr_B"
-		(at 74.93 162.56 0)
+		(at 74.93 157.48 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15639,6 +15916,16 @@
 		)
 		(uuid "1a457b4a-ab60-4733-89ae-9e905eb61bd9")
 	)
+	(label "VCC_5V"
+		(at 118.11 19.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1af3334c-eb2f-4dfc-96a3-afd3b2e48875")
+	)
 	(label "SWCLK"
 		(at 186.69 105.41 90)
 		(effects
@@ -15649,8 +15936,38 @@
 		)
 		(uuid "1e7c2dca-da10-482e-93a6-b2e0ee8ef804")
 	)
+	(label "UART_RX_Mtr_A"
+		(at 13.97 190.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1ebc4d12-75d0-462a-8a10-e754008b5e88")
+	)
+	(label "UART_NRE_Mtr_A"
+		(at 30.48 190.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "20f0f44f-8937-4860-b15e-aa731647ba2e")
+	)
+	(label "JS_X_axis"
+		(at 191.77 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2297529c-e8d1-41ce-833d-abbb27718c4f")
+	)
 	(label "UART_DE_Mtr_B"
-		(at 43.18 163.83 180)
+		(at 43.18 158.75 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15709,6 +16026,26 @@
 		)
 		(uuid "31b0712c-57f8-47d0-a5e4-534c9aa165b5")
 	)
+	(label "UART_TX_Mtr_B"
+		(at 55.88 182.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31ee92b9-5b49-4078-976c-0829d1c1b216")
+	)
+	(label "JS_Y_axis"
+		(at 205.74 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3ab63f30-418b-4983-8736-4c3b3bd6ad9e")
+	)
 	(label "VCC_3_3V"
 		(at 139.7 134.62 270)
 		(effects
@@ -15718,6 +16055,16 @@
 			(justify right bottom)
 		)
 		(uuid "42cec4a8-267f-4136-a46f-747e1b607071")
+	)
+	(label "UART_TX_Mtr_A"
+		(at 13.97 182.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4abbe32a-9074-4497-bec3-6d0db661e47f")
 	)
 	(label "SWO"
 		(at 201.93 107.95 90)
@@ -15760,7 +16107,7 @@
 		(uuid "51adb0cf-cf46-4c46-9368-6e4078bc7a3d")
 	)
 	(label "UART_TX_Mtr_B"
-		(at 43.18 168.91 180)
+		(at 43.18 163.83 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15779,7 +16126,7 @@
 		)
 		(uuid "54e2133f-a299-47a5-8b40-808f6dc8681c")
 	)
-	(label "VCC_3_3_VDD"
+	(label "VCC_3_3V"
 		(at 110.49 124.46 90)
 		(effects
 			(font
@@ -15828,6 +16175,16 @@
 			(justify right bottom)
 		)
 		(uuid "6823bc62-f4d8-40ed-af27-5b2910294051")
+	)
+	(label "UART_DE_Mtr_A"
+		(at 30.48 182.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6c6ad08c-0867-40b3-8d1b-e27e71afb056")
 	)
 	(label "UART_TX_Mtr_B"
 		(at 219.71 107.95 90)
@@ -15920,6 +16277,16 @@
 		(uuid "84af8da4-ef8d-4875-88bc-76169b533bc6")
 	)
 	(label "VCC_3_3V"
+		(at 118.11 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "86207cdc-9682-473d-bee0-6d83764c29cd")
+	)
+	(label "VCC_3_3V"
 		(at 161.29 72.39 180)
 		(effects
 			(font
@@ -15928,6 +16295,16 @@
 			(justify right bottom)
 		)
 		(uuid "8ab6071d-c4ff-4612-bb71-475154df55a5")
+	)
+	(label "UART_NRE_Mtr_B"
+		(at 73.66 190.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8da1b540-180c-42ee-9af0-01a4f034786c")
 	)
 	(label "UART_TX_Mtr_A"
 		(at 184.15 151.13 270)
@@ -16029,6 +16406,16 @@
 		)
 		(uuid "b0cc9e89-c1af-49b2-832f-cd20e7bab69f")
 	)
+	(label "UART_RX_Mtr_B"
+		(at 55.88 190.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b53dd724-610b-46ad-833e-d630ffe266c2")
+	)
 	(label "VCC_3_3V"
 		(at 262.89 43.18 0)
 		(effects
@@ -16068,6 +16455,16 @@
 			(justify left bottom)
 		)
 		(uuid "c00e3589-65de-4afd-a618-d3a6d04ad7d0")
+	)
+	(label "JS_Z_axis"
+		(at 191.77 77.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c26df954-dc57-4a63-8ab4-0feff40a8da6")
 	)
 	(label "VSSA_12"
 		(at 245.11 128.27 0)
@@ -16109,7 +16506,7 @@
 		)
 		(uuid "cc6d2e08-3fbf-443e-bb4d-cbcd1fa25f38")
 	)
-	(label "VCC_3_3_VDD"
+	(label "VCC_3_3V"
 		(at 129.54 142.24 90)
 		(effects
 			(font
@@ -16189,8 +16586,18 @@
 		)
 		(uuid "e5b30592-5b14-4066-9a2a-33438074ebb3")
 	)
+	(label "UART_DE_Mtr_B"
+		(at 72.39 182.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5b7749b-a53a-463e-aaef-24c4453d6b88")
+	)
 	(label "UART_RX_Mtr_B"
-		(at 43.18 158.75 180)
+		(at 43.18 153.67 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16210,7 +16617,7 @@
 		(uuid "f5da022f-1ee9-48dd-b154-79b0f43cf155")
 	)
 	(label "RS485_A_Mtr_B"
-		(at 74.93 154.94 0)
+		(at 74.93 149.86 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16906,6 +17313,85 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 30.48 189.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "042f3318-9d09-47c0-9118-eac5deda0808")
+		(property "Reference" "TP4"
+			(at 33.02 184.6579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_NRE_A"
+			(at 33.02 187.1979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 35.56 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 30.48 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "05bf0d24-0c95-4549-b585-cb3a752da655")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -17933,6 +18419,85 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 55.88 181.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "272af9bb-cd4d-4f84-88ef-806cd4841c62")
+		(property "Reference" "TP5"
+			(at 58.42 177.0379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_TX_B"
+			(at 58.42 179.5779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 60.96 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 55.88 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "67a93e3c-1587-43ca-b0d9-2151b43a1e17")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -19159,6 +19724,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 19.05 195.58 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "33264caf-c608-423c-ac4c-13394844d488")
+		(property "Reference" "TP9"
+			(at 20.828 191.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_GND_1"
+			(at 20.32 194.056 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 24.13 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 19.05 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bfbc5fc4-d56d-47c4-8ea6-a945846ac864")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "symbols:1206_R_560112132038")
 		(at 43.18 24.13 270)
 		(unit 1)
@@ -19830,6 +20473,243 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 73.66 189.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4483673c-4eb3-48be-828e-3633c837432f")
+		(property "Reference" "TP8"
+			(at 76.2 184.6579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_NRE_B"
+			(at 76.2 187.1979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 78.74 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 73.66 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7de51a34-c503-48e2-b469-e3cb5446245b")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 189.23 67.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4e606599-f1eb-4f60-9a06-3737c8f6bb7b")
+		(property "Reference" "TP14"
+			(at 191.77 62.7379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_X_Axis"
+			(at 191.77 65.2779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 194.31 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 189.23 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d0fbb531-1de6-4ef4-a13e-5d971e801abe")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 30.48 181.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4ed3ef1f-6502-49aa-86db-7e451558cb84")
+		(property "Reference" "TP3"
+			(at 33.02 177.0379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_DE_A"
+			(at 33.02 179.5779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 35.56 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 30.48 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e12d20b5-90aa-4d8b-8976-e52dfc7bb0c8")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -21102,6 +21982,84 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 13.97 181.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5d178a01-29c4-4a5b-9839-4d8067b512a7")
+		(property "Reference" "TP1"
+			(at 16.51 177.546 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_TX_A"
+			(at 16.51 179.5779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 19.05 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 19.05 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 13.97 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c8d0ab65-008f-4d75-aaf8-27b79722f13c")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -24262,6 +25220,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 55.88 189.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8faa38ed-9c96-4849-8205-891b101d6bf9")
+		(property "Reference" "TP6"
+			(at 58.42 184.6579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_RX_B"
+			(at 58.42 187.1979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 60.96 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 55.88 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2bd7daa8-b71d-45c6-a6d5-f4354e58ea67")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "symbols:1206_R_560112132020")
 		(at 163.83 36.83 180)
 		(unit 1)
@@ -24881,6 +25918,85 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 115.57 35.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9e145313-2896-49a5-9213-8690afb1e836")
+		(property "Reference" "TP13"
+			(at 118.11 30.9879 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_GND_2"
+			(at 118.11 33.5279 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 120.65 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 115.57 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "994a1139-90ef-43e4-84ca-0e29c01708ae")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP13")
 					(unit 1)
 				)
 			)
@@ -25801,6 +26917,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 203.2 67.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "aeed6759-d1ce-4047-9abe-d433fc7e064e")
+		(property "Reference" "TP15"
+			(at 205.74 62.7379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_Y_Axis"
+			(at 205.74 65.2779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 208.28 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 203.2 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d43638e3-69c0-42bf-b89c-3bb56a3733a7")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "symbols:1206_R_560112132051")
 		(at 153.67 45.72 180)
 		(unit 1)
@@ -26146,6 +27341,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 115.57 17.78 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b71f4018-8c3c-4e64-a4d6-06233188ac5a")
+		(property "Reference" "TP12"
+			(at 118.11 13.716 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_5V"
+			(at 118.11 15.7479 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 120.65 17.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 17.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 115.57 17.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e478c0a0-481d-4e27-af42-3ad675f2ce8c")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Resistor_Wurth_WRIS-RSKS:1210_R_560112140009")
 		(at 69.85 107.95 90)
 		(unit 1)
@@ -26408,6 +27681,85 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 115.57 26.67 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bcbf8117-f50d-496d-ac06-0d4809f516c4")
+		(property "Reference" "TP11"
+			(at 118.11 22.0979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_3_3V"
+			(at 118.11 24.6379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 120.65 26.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 26.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 115.57 26.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b85d832a-ef95-4653-aeca-3ea10b8716c4")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP11")
 					(unit 1)
 				)
 			)
@@ -26762,6 +28114,85 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 189.23 76.2 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c06e04d0-7b4a-4e97-9220-13520d8972e2")
+		(property "Reference" "TP16"
+			(at 191.77 71.6279 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_Z_Axis"
+			(at 191.77 74.1679 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 194.31 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 189.23 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b35c0f29-ee58-4e1a-b3a6-44eb07db2655")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP16")
 					(unit 1)
 				)
 			)
@@ -28403,7 +29834,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 53.34 179.07 0)
+		(at 53.34 175.26 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -28411,10 +29842,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "ccb1ba3d-a5ac-44fc-855c-4e796e245e6a")
 		(property "Reference" "#PWR02"
-			(at 53.34 185.42 0)
+			(at 46.99 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28425,7 +29855,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 53.34 184.15 0)
+			(at 49.276 172.974 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28435,7 +29865,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 179.07 0)
+			(at 53.34 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28446,7 +29876,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 179.07 0)
+			(at 53.34 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28457,7 +29887,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 53.34 179.07 0)
+			(at 53.34 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28917,7 +30347,7 @@
 	)
 	(symbol
 		(lib_id "Resistor_Wurth_WRIS-RSKS:1210_R_560112140009")
-		(at 71.12 158.75 270)
+		(at 71.12 153.67 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -28927,7 +30357,7 @@
 		(dnp no)
 		(uuid "d22e0fef-0326-46ea-9a14-8550d108f203")
 		(property "Reference" "R5"
-			(at 68.072 157.48 90)
+			(at 68.072 152.4 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28938,7 +30368,7 @@
 			)
 		)
 		(property "Value" "120 ohm"
-			(at 68.58 158.75 0)
+			(at 68.58 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28949,7 +30379,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD_Wurth:R_Wurth_WRIS-RSKS-1210_R"
-			(at 78.74 158.75 0)
+			(at 78.74 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28960,7 +30390,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.we-online.com/catalog/datasheet/560112140009.pdf?ki"
-			(at 88.9 210.82 0)
+			(at 88.9 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28971,7 +30401,7 @@
 			)
 		)
 		(property "Description" "Anti-Sulfur Thick Film Resistors"
-			(at 71.12 158.75 0)
+			(at 71.12 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28982,7 +30412,7 @@
 			)
 		)
 		(property "Manufacturer" "Wurth Elektronik"
-			(at 86.36 210.82 0)
+			(at 86.36 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28993,7 +30423,7 @@
 			)
 		)
 		(property "Manufacturer URL" "https://www.we-online.com"
-			(at 83.82 210.82 0)
+			(at 83.82 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29004,7 +30434,7 @@
 			)
 		)
 		(property "Created Date" "20250214"
-			(at 81.28 210.82 0)
+			(at 81.28 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29015,7 +30445,7 @@
 			)
 		)
 		(property "Series" "WRIS-RSKS"
-			(at 78.74 210.82 0)
+			(at 78.74 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29026,7 +30456,7 @@
 			)
 		)
 		(property "Part Number" "560112140009"
-			(at 76.2 210.82 0)
+			(at 76.2 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29037,7 +30467,7 @@
 			)
 		)
 		(property "Size" "1210_R"
-			(at 73.66 210.82 0)
+			(at 73.66 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29048,7 +30478,7 @@
 			)
 		)
 		(property "Mounting Technology" "SMT"
-			(at 71.12 210.82 0)
+			(at 71.12 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29059,7 +30489,7 @@
 			)
 		)
 		(property "R" "120 ohm"
-			(at 68.58 210.82 0)
+			(at 68.58 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29070,7 +30500,7 @@
 			)
 		)
 		(property "Tol. R" "±5%"
-			(at 66.04 210.82 0)
+			(at 66.04 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29081,7 +30511,7 @@
 			)
 		)
 		(property "PRated (mW)" "500.0"
-			(at 63.5 210.82 0)
+			(at 63.5 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29092,7 +30522,7 @@
 			)
 		)
 		(property "TCR (ppm/ °C)" "-100"
-			(at 60.96 210.82 0)
+			(at 60.96 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29103,7 +30533,7 @@
 			)
 		)
 		(property "TCR (ppm/ °C).1" "100"
-			(at 58.42 210.82 0)
+			(at 58.42 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29114,7 +30544,7 @@
 			)
 		)
 		(property "VE (V)" "200"
-			(at 55.88 210.82 0)
+			(at 55.88 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29125,7 +30555,7 @@
 			)
 		)
 		(property "L (mm)" "3.1"
-			(at 53.34 210.82 0)
+			(at 53.34 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29136,7 +30566,7 @@
 			)
 		)
 		(property "W (mm)" "2.6"
-			(at 50.8 210.82 0)
+			(at 50.8 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29147,7 +30577,7 @@
 			)
 		)
 		(property "H (mm)" "0.55"
-			(at 48.26 210.82 0)
+			(at 48.26 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29158,7 +30588,7 @@
 			)
 		)
 		(property "Critical Parameter" "120 ohm"
-			(at 69.342 159.766 90)
+			(at 69.342 154.686 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29886,6 +31316,162 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 72.39 181.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "df7c0c01-e162-45e2-a07e-61581095176a")
+		(property "Reference" "TP7"
+			(at 74.93 177.0379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_DE_B"
+			(at 74.93 179.5779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 77.47 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 72.39 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "32dec1e5-a6f1-436d-a5e1-2af7e44b1055")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 19.05 195.58 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e2da61c2-e012-4967-bd13-563f179b6014")
+		(property "Reference" "#PWR029"
+			(at 12.7 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 16.002 193.294 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 19.05 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 19.05 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 19.05 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cdf198d2-fb2d-41f4-9e98-8c7ce73d4e1e")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -31089,8 +32675,87 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 116.84 35.56 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f3429018-a9b5-4e93-8f09-fb481561729d")
+		(property "Reference" "#PWR031"
+			(at 123.19 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 120.65 35.5599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.84 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 116.84 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bf8e7a5b-844b-429e-b6df-34cf04882f45")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Interface_UART:SP3485EN")
-		(at 53.34 163.83 0)
+		(at 53.34 158.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -31100,7 +32765,7 @@
 		(dnp no)
 		(uuid "f5e0c6f3-e24f-4fb5-bf2f-6c6e2aca0797")
 		(property "Reference" "U3"
-			(at 72.136 171.704 0)
+			(at 72.136 166.624 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -31111,7 +32776,7 @@
 			)
 		)
 		(property "Value" "SP3485EN"
-			(at 72.136 169.164 0)
+			(at 72.136 164.084 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -31122,7 +32787,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 80.01 172.72 0)
+			(at 80.01 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31134,7 +32799,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.icbase.com/pdf/SPX/SPX00480106.pdf"
-			(at 53.34 163.83 0)
+			(at 53.34 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31145,7 +32810,7 @@
 			)
 		)
 		(property "Description" "Industrial 3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, SOIC-8"
-			(at 53.34 163.83 0)
+			(at 53.34 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31738,6 +33403,85 @@
 			(project "KommModul_Joystick"
 				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
 					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 13.97 189.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fad17abd-3a1a-4f1b-bab0-d760ebebeed7")
+		(property "Reference" "TP2"
+			(at 16.51 184.6579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_RX_A"
+			(at 16.51 187.1979 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 19.05 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 19.05 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 13.97 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "739b074e-755e-421f-bc45-4825562a6fc1")
+		)
+		(instances
+			(project "KommModul_Joystick"
+				(path "/b3a1d19e-72ec-433f-985d-69e9858988ab"
+					(reference "TP2")
 					(unit 1)
 				)
 			)
