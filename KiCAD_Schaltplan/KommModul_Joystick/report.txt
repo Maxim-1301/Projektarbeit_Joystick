@@ -1,0 +1,11 @@
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-F_Cu.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-B_Cu.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-F_Paste.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-B_Paste.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-F_Silkscreen.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-B_Silkscreen.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-F_Mask.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-B_Mask.gbr" geschrieben.
+Plot in "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-Edge_Cuts.gbr" geschrieben.
+Gerber-Jobdatei "C:\Semester6\Projektarbeit\Projektarbeit_Joystick\KiCAD_Schaltplan\KommModul_Joystick\GerberFiles\KommModul_Joystick-job.gbrjob" wurde erstellt.
+Hinweis: Fertig.

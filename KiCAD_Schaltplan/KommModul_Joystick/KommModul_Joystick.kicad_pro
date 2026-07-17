@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.25,
+          "min_clearance": 0.0,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
@@ -572,7 +572,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "C:/Semester6/Projektarbeit/Projektarbeit_Joystick/KiCAD_Schaltplan/KommModul_Joystick/GerberFiles/",
       "specctra_dsn": "",
       "vrml": ""
     },
@@ -696,7 +696,7 @@
         "uuid": "b3a1d19e-72ec-433f-985d-69e9858988ab"
       }
     ],
-    "used_designators": "C19,#PWR28-32,TP1-17",
+    "used_designators": "C19,#PWR28-32,TP1-17,H1-3",
     "variants": []
   },
   "sheets": [
