@@ -572,7 +572,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "C:/Semester6/Projektarbeit/Projektarbeit_Joystick/KiCAD_Schaltplan/KommModul_Joystick/GerberFiles/",
+      "plot": "Gerber_Files/",
       "specctra_dsn": "",
       "vrml": ""
     },

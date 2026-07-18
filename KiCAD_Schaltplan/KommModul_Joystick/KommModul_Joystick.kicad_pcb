@@ -145,7 +145,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "C:/Semester6/Projektarbeit/Projektarbeit_Joystick/KiCAD_Schaltplan/KommModul_Joystick/GerberFiles/")
+			(outputdirectory "Gerber_Files/")
 		)
 	)
 	(footprint "Resistor_SMD_Wurth:R_Wurth_WRIS-RSKS-1206_R"
