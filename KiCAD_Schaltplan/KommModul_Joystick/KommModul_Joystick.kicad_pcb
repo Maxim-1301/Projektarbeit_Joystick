@@ -155,7 +155,7 @@
 		(descr "Anti-Sulfur Thick Film Resistors, body 3.1x1.6x0.6mm, https://www.we-online.com/en/components/products/WRIS-RSKS#/articles/WRIS-RSKS_1206")
 		(tags "SMT")
 		(property "Reference" "R13"
-			(at 2.557828 2.742172 0)
+			(at 2.057828 2.742172 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "fdc0c126-1d17-472b-9918-b0e81182cbcc")
@@ -2570,7 +2570,7 @@
 		(descr "MLCCs General Purpose, body 3.2x1.6x0.8mm, https://www.we-online.com/en/components/products/WCAP-CSGP-6_3VDC")
 		(tags "SMT")
 		(property "Reference" "C9"
-			(at 0.5 2.5 0)
+			(at 0 2.5 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "b87e2e1f-3380-411a-b4b3-03aab2d71004")
@@ -3233,7 +3233,7 @@
 		(descr "2.54 mm Male Vertical Shrouded Header, body 9.86x5x14.3mm, https://www.we-online.com/en/components/products/datasheet/66100411622?ki")
 		(tags "THT")
 		(property "Reference" "J1"
-			(at 13.62 -1.5 0)
+			(at 10.62 0 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "0a0da5a6-365c-4f34-bded-36e52dfd3be8")
@@ -3693,7 +3693,7 @@
 		(descr "MLCCs General Purpose, body 3.2x1.6x1.6mm, https://www.we-online.com/en/components/products/WCAP-CSGP-6_3VDC")
 		(tags "SMT")
 		(property "Reference" "C12"
-			(at -1 -2 0)
+			(at -0.5 -2 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "92d23ab1-4986-4744-8528-335c376d4d8f")
@@ -5659,7 +5659,7 @@
 		(descr "MLCCs General Purpose, body 3.2x1.6x0.8mm, https://www.we-online.com/en/components/products/WCAP-CSGP-6_3VDC")
 		(tags "SMT")
 		(property "Reference" "C13"
-			(at -0.7 2.014264 0)
+			(at -0.2 3.514264 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "dd1c73dd-ed69-41d8-9f1a-0c89a28dc7b1")
@@ -8584,7 +8584,7 @@
 		(descr "2.54 mm Male Box Header High Temperature, body 33x9.05x12mm, https://www.we-online.com/en/components/products/datasheet/612020235121?ki")
 		(tags "THT")
 		(property "Reference" "J5"
-			(at 1.27 -6.35 0)
+			(at 1 -7 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "681b0177-ef1d-4524-88cd-fdb43ab81fea")
@@ -10619,7 +10619,7 @@
 		(descr "MLCCs General Purpose, body 3.2x1.6x1.15mm, https://www.we-online.com/en/components/products/WCAP-CSGP-6_3VDC")
 		(tags "SMT")
 		(property "Reference" "C6"
-			(at -0.55 -2 0)
+			(at 0 -2 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "ecf0bed7-aa25-42d2-aae6-0fbafc43d50e")
@@ -15312,7 +15312,7 @@
 		(descr "MLCCs General Purpose, body 3.2x1.6x0.8mm, https://www.we-online.com/en/components/products/WCAP-CSGP-6_3VDC")
 		(tags "SMT")
 		(property "Reference" "C8"
-			(at -2.45 2.5 0)
+			(at -1.95 2.5 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "b04f33a8-49c2-4ac7-afdd-64bd54856d72")
@@ -16222,7 +16222,7 @@
 			)
 		)
 		(property "Value" "STM32F303RETx"
-			(at 13.5 -8.5 0)
+			(at 17 -10.5 0)
 			(layer "F.Fab")
 			(uuid "3b5d9a6f-81d2-4927-814a-62724c6c6fb5")
 			(effects
@@ -19003,7 +19003,7 @@
 		(descr "MLCCs General Purpose, body 3.2x1.6x1.15mm, https://www.we-online.com/en/components/products/WCAP-CSGP-6_3VDC")
 		(tags "SMT")
 		(property "Reference" "C7"
-			(at 3.214312 0 0)
+			(at 0.17363 -2.171264 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "75868e20-2d7c-4068-8a0c-5023111c3d5b")
@@ -22055,7 +22055,7 @@
 		(uuid "204c90ce-e7b1-4550-9765-cbc7f32e3021")
 	)
 	(gr_text "Wahlschalter"
-		(at 127.5 124.5 0)
+		(at 126.5 124.5 0)
 		(layer "F.SilkS")
 		(uuid "071125db-7414-4191-9900-5d0575c12556")
 		(effects
@@ -22103,7 +22103,7 @@
 		)
 	)
 	(gr_text "STM32"
-		(at 130 69 0)
+		(at 129.5 63 0)
 		(layer "F.SilkS")
 		(uuid "1627b759-9064-4dba-96ab-2f5976515248")
 		(effects
