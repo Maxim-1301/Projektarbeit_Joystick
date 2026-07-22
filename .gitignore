@@ -42,3 +42,14 @@ fp-info-cache
 # Local project settings
 *.kicad_prl
 GerberFiles
+
+# STM32CubeIDE-/Eclipse-Workspace
+**/.metadata/
+
+# Build-Ergebnisse
+**/Debug/
+**/Release/
+
+*.elf
+*.map
+*.list
