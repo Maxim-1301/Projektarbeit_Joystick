@@ -1,0 +1,11 @@
+../Core/Src/Application/display_i2c.c:44:26:expander_write	1
+../Core/Src/Application/display_i2c.c:60:26:write_nibble	2
+../Core/Src/Application/display_i2c.c:100:26:write_byte	2
+../Core/Src/Application/display_i2c.c:128:26:send_command	3
+../Core/Src/Application/display_i2c.c:151:26:send_character	1
+../Core/Src/Application/display_i2c.c:162:19:Display_Init	10
+../Core/Src/Application/display_i2c.c:281:19:Display_Clear	1
+../Core/Src/Application/display_i2c.c:290:19:Display_SetCursor	3
+../Core/Src/Application/display_i2c.c:332:19:Display_Write	4
+../Core/Src/Application/display_i2c.c:359:19:Display_WriteLine	7
+../Core/Src/Application/display_i2c.c:419:19:Display_SetBacklight	2

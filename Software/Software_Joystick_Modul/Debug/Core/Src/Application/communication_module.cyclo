@@ -1,0 +1,9 @@
+../Core/Src/Application/communication_module.c:44:13:calculate_power_values	6
+../Core/Src/Application/communication_module.c:126:13:select_display_motor	4
+../Core/Src/Application/communication_module.c:149:13:display_motor_A	1
+../Core/Src/Application/communication_module.c:213:13:display_motor_B	1
+../Core/Src/Application/communication_module.c:256:13:update_display	2
+../Core/Src/Application/communication_module.c:268:19:communication_module_init	3
+../Core/Src/Application/communication_module.c:295:6:communication_module_process	4
+../Core/Src/Application/communication_module.c:351:6:communication_uart_rx_callback	1
+../Core/Src/Application/communication_module.c:357:6:communication_uart_error_callback	1
