@@ -5,7 +5,6 @@
  *      Author: jonat
  */
 
-
 #include "Application/communication_module.h"
 
 #include "Application/display_i2c.h"
@@ -16,36 +15,77 @@
 
 #include <stdio.h>
 
-#define CONTROL_PERIOD_MS  30U
-#define DISPLAY_PERIOD_MS  250U
+/* Zeitintervalle */
+#define CONTROL_PERIOD_MS             30U
+#define DISPLAY_PERIOD_MS            250U
+#define MODE_MESSAGE_TIME_MS        2000U
+#define MODE_BUTTON_DEBOUNCE_MS      150U
 
-/* Aktuelle Motorleistung von -127 bis +127 */
+/* Displayseiten */
+#define DISPLAY_PAGE_MAIN              0U
+#define DISPLAY_PAGE_DETAILS           1U
+
+/* Betriebsarten */
+#define DRIVE_MODE_NORMAL              0U
+#define DRIVE_MODE_ROTATION            1U
+
+/* Aktuelle Motorbefehle von -127 bis +127 */
 int16_t power_val_MA = 0;
 int16_t power_val_MB = 0;
+
+/* Aktuelle Displayseite */
+static uint8_t display_page = DISPLAY_PAGE_MAIN;
+
+/* Aktuelle Betriebsart */
+static uint8_t driving_mode = DRIVE_MODE_NORMAL;
+
+/* Vorherige Tasterzustände zur Flankenerkennung */
+static uint8_t previous_button_1 = 0U;
+static uint8_t previous_button_2 = 0U;
+
+/* Status der kurzen Modusmeldung */
+static uint8_t mode_message_active = 0U;
+static uint8_t display_force_update = 1U;
+
+/* Display verfügbar */
+static uint8_t display_available = 0U;
 
 /* Zeitsteuerung */
 static uint32_t last_control_time = 0U;
 static uint32_t last_display_time = 0U;
+static uint32_t mode_message_start_time = 0U;
+static uint32_t last_mode_button_time = 0U;
+static uint8_t rotation_button_ready = 0U;
 
-/* Displaystatus */
-static uint8_t display_available = 0U;
-
-/*
- * 0 = Motor A anzeigen
- * 1 = Motor B anzeigen
- */
-static uint8_t selected_motor = 0U;
 
 /*
- * Wird für die Erkennung einer neuen Tastenbetätigung benötigt.
+ * Motorwerte aus den Joystickwerten berechnen.
  */
-static uint8_t previous_button_1 = 0U;
-
 static void calculate_power_values(void)
 {
-    int16_t reduced_power;
     int16_t absolute_x;
+    int16_t reduced_power;
 
+    /*
+     * Im Drehmodus werden X und Y ignoriert.
+     *
+     * Z positiv:
+     * Motor A vorwärts, Motor B rückwärts.
+     *
+     * Z negativ:
+     * Motor A rückwärts, Motor B vorwärts.
+     */
+    if (driving_mode == DRIVE_MODE_ROTATION)
+    {
+        power_val_MA = con_z;
+        power_val_MB = -con_z;
+        return;
+    }
+
+    /*
+     * Im Normalmodus wird die Z-Achse vollständig ignoriert.
+     * Die Fahrt erfolgt nur mit X und Y.
+     */
     if (con_x < 0)
     {
         absolute_x = -con_x;
@@ -55,218 +95,328 @@ static void calculate_power_values(void)
         absolute_x = con_x;
     }
 
-    if (absolute_x > MOTOR_MAX_POWER)
-    {
-        absolute_x = MOTOR_MAX_POWER;
-    }
-
     /*
-     * con_y liegt bereits direkt zwischen -127 und +127.
-     *
-     * Die Lenkung erhöht den Schub nicht.
-     * Der kurveninnere Motor wird lediglich reduziert:
-     *
-     * reduzierter Motor =
-     * Schub * (127 - |Lenkung|) / 127
+     * Die Lenkung reduziert ausschließlich den
+     * kurveninneren Motor.
      */
     reduced_power =
-        (int16_t)(
-            ((int32_t)con_y *
-             (MOTOR_MAX_POWER - absolute_x)) /
-            MOTOR_MAX_POWER);
+        (int16_t)(((int32_t)con_y *
+                  (JOYSTICK_MAX_VALUE - absolute_x)) /
+                  JOYSTICK_MAX_VALUE);
 
     if (con_y >= 0)
     {
-        /*
-         * Vorwärtsfahrt.
-         */
         if (con_x >= 0)
         {
-            /*
-             * Rechtskurve:
-             * Motor A links bleibt unverändert.
-             * Motor B rechts wird reduziert.
-             */
+            /* Vorwärts und rechts */
             power_val_MA = con_y;
             power_val_MB = reduced_power;
         }
         else
         {
-            /*
-             * Linkskurve.
-             */
+            /* Vorwärts und links */
             power_val_MA = reduced_power;
             power_val_MB = con_y;
         }
     }
     else
     {
-        /*
-         * Rückwärtsfahrt.
-         */
         if (con_x >= 0)
         {
-            /*
-             * Rückwärts nach rechts.
-             */
+            /* Rückwärts und rechts */
             power_val_MA = reduced_power;
             power_val_MB = con_y;
         }
         else
         {
-            /*
-             * Rückwärts nach links.
-             */
+            /* Rückwärts und links */
             power_val_MA = con_y;
             power_val_MB = reduced_power;
         }
     }
 }
 
-static void select_display_motor(void)
+
+/*
+ * Taster 1 schaltet zwischen Haupt- und Detailseite um.
+ */
+static void update_display_button(void)
 {
     /*
-     * Nur bei der neuen Betätigung umschalten.
-     * Dadurch wird nicht bei jedem Programmdurchlauf gewechselt,
-     * solange der Taster gehalten wird.
+     * Während der Modusmeldung wird die normale
+     * Displayumschaltung ignoriert.
      */
-    if ((joystick_button_1 != 0U) &&
+    if ((mode_message_active == 0U) &&
+        (joystick_button_1 != 0U) &&
         (previous_button_1 == 0U))
     {
-        if (selected_motor == 0U)
+        if (display_page == DISPLAY_PAGE_MAIN)
         {
-            selected_motor = 1U;
+            display_page = DISPLAY_PAGE_DETAILS;
         }
         else
         {
-            selected_motor = 0U;
+            display_page = DISPLAY_PAGE_MAIN;
         }
+
+        /*
+         * Neue Seite sofort ausgeben.
+         */
+        display_force_update = 1U;
     }
 
     previous_button_1 = joystick_button_1;
 }
 
-static void display_motor_A(void)
+
+/*
+ * Taster 2 schaltet dauerhaft zwischen Normal- und Drehmodus um.
+ */
+static void update_rotation_mode_button(uint32_t current_time)
+{
+    /*
+     * Nach dem Einschalten muss Taster 2 zunächst
+     * einmal losgelassen worden sein.
+     */
+    if (rotation_button_ready == 0U)
+    {
+        if (joystick_button_2 == 0U)
+        {
+            rotation_button_ready = 1U;
+        }
+
+        previous_button_2 = joystick_button_2;
+        return;
+    }
+
+    /*
+     * Neue Betätigung von Taster 2 erkennen.
+     */
+    if ((joystick_button_2 != 0U) &&
+        (previous_button_2 == 0U))
+    {
+        if ((uint32_t)(current_time -
+                       last_mode_button_time) >=
+            MODE_BUTTON_DEBOUNCE_MS)
+        {
+            last_mode_button_time = current_time;
+
+            if (driving_mode == DRIVE_MODE_NORMAL)
+            {
+                driving_mode = DRIVE_MODE_ROTATION;
+            }
+            else
+            {
+                driving_mode = DRIVE_MODE_NORMAL;
+            }
+
+            mode_message_active = 1U;
+            mode_message_start_time = current_time;
+
+            display_page = DISPLAY_PAGE_MAIN;
+            display_force_update = 1U;
+        }
+    }
+
+    previous_button_2 = joystick_button_2;
+}
+
+
+/*
+ * Hauptseite:
+ * Akkustand, Leistung und Geschwindigkeit.
+ */
+static void display_main_page(void)
 {
     char line[32];
 
     /*
-     * Zeile 1:
-     * Motorname und Drehzahl.
+     *         11111111112
+     * 12345678901234567890
+     *      Motor A Motor B
      */
-    (void)snprintf(
-        line,
-        sizeof(line),
-        "Motor A     %5urpm",
-        (unsigned int)motor_speed_A);
-
-    (void)Display_WriteLine(0U, line);
+    (void)Display_WriteLine(
+        0U,
+        "     Motor A Motor B");
 
     /*
-     * Zeile 2:
-     * Leistung wird von Watt in Kilowatt umgerechnet.
-     *
-     * Beispiel:
-     * 2350 W wird als 2.35 kW angezeigt.
+     * Akkustand in Prozent.
      */
     (void)snprintf(
         line,
         sizeof(line),
-        "Leistung: %2u.%02u kW",
-        (unsigned int)(motor_power_A / 1000U),
-        (unsigned int)((motor_power_A % 1000U) / 10U));
+        "Akku:%6u%% %6u%%",
+        (unsigned int)battery_capacity_A,
+        (unsigned int)battery_capacity_B);
 
     (void)Display_WriteLine(1U, line);
 
     /*
-     * Zeile 3:
-     * Batteriespannung und Batteriekapazität.
-     *
-     * battery_voltage_A = 486 bedeutet 48,6 V.
+     * Motorleistung in kW.
+     * motor_power ist in Watt gespeichert.
      */
     (void)snprintf(
         line,
         sizeof(line),
-        "Akku:%3u.%1uV    %3u%%",
-        (unsigned int)(battery_voltage_A / 10U),
-        (unsigned int)(battery_voltage_A % 10U),
-        (unsigned int)battery_capacity_A);
+        "P[kW]:  %1u.%02u   %2u.%02u",
+        (unsigned int)(motor_power_A / 1000U),
+        (unsigned int)((motor_power_A % 1000U) / 10U),
+        (unsigned int)(motor_power_B / 1000U),
+        (unsigned int)((motor_power_B % 1000U) / 10U));
 
     (void)Display_WriteLine(2U, line);
 
     /*
-     * Zeile 4:
-     * Geschwindigkeit und Motortemperatur.
+     * Geschwindigkeit in m/s.
+     * gps_speed ist in 0,1 m/s gespeichert.
      */
     (void)snprintf(
         line,
         sizeof(line),
-        "v:%2u.%1um/s T:%2u.%1uC",
+        "v[m/s]: %2u.%1u   %3u.%1u",
         (unsigned int)(gps_speed_A / 10U),
         (unsigned int)(gps_speed_A % 10U),
-        (unsigned int)(motor_temperature_A / 10U),
-        (unsigned int)(motor_temperature_A % 10U));
+        (unsigned int)(gps_speed_B / 10U),
+        (unsigned int)(gps_speed_B % 10U));
 
     (void)Display_WriteLine(3U, line);
 }
 
-static void display_motor_B(void)
+
+/*
+ * Detailseite:
+ * Drehzahl, Batteriespannung und Motortemperatur.
+ */
+static void display_details_page(void)
 {
     char line[32];
 
+    (void)Display_WriteLine(
+        0U,
+        "     Motor A Motor B");
+
+    /*
+     * Drehzahl in Umdrehungen pro Minute.
+     */
     (void)snprintf(
         line,
         sizeof(line),
-        "Motor B     %5urpm",
+        "rpm: %7u %7u",
+        (unsigned int)motor_speed_A,
         (unsigned int)motor_speed_B);
-
-    (void)Display_WriteLine(0U, line);
-
-    (void)snprintf(
-        line,
-        sizeof(line),
-        "Leistung: %2u.%02u kW",
-        (unsigned int)(motor_power_B / 1000U),
-        (unsigned int)((motor_power_B % 1000U) / 10U));
 
     (void)Display_WriteLine(1U, line);
 
+    /*
+     * Batteriespannung in Volt.
+     * battery_voltage ist in 0,1 V gespeichert.
+     */
     (void)snprintf(
         line,
         sizeof(line),
-        "Akku:%3u.%1uV    %3u%%",
+        "U[V]:%5u.%1u %5u.%1u",
+        (unsigned int)(battery_voltage_A / 10U),
+        (unsigned int)(battery_voltage_A % 10U),
         (unsigned int)(battery_voltage_B / 10U),
-        (unsigned int)(battery_voltage_B % 10U),
-        (unsigned int)battery_capacity_B);
+        (unsigned int)(battery_voltage_B % 10U));
 
     (void)Display_WriteLine(2U, line);
 
+    /*
+     * Motortemperatur in Grad Celsius.
+     * motor_temperature ist in 0,1 Grad gespeichert.
+     */
     (void)snprintf(
         line,
         sizeof(line),
-        "v:%2u.%1um/s T:%2u.%1uC",
-        (unsigned int)(gps_speed_B / 10U),
-        (unsigned int)(gps_speed_B % 10U),
+        "T[C]:%5u.%1u %5u.%1u",
+        (unsigned int)(motor_temperature_A / 10U),
+        (unsigned int)(motor_temperature_A % 10U),
         (unsigned int)(motor_temperature_B / 10U),
         (unsigned int)(motor_temperature_B % 10U));
 
     (void)Display_WriteLine(3U, line);
 }
 
-static void update_display(void)
+
+/*
+ * Kurze Meldung beim Umschalten der Betriebsart.
+ */
+static void display_mode_message(void)
 {
-    if (selected_motor == 0U)
+    (void)Display_WriteLine(0U, "--------------------");
+
+    if (driving_mode == DRIVE_MODE_ROTATION)
     {
-        display_motor_A();
+        (void)Display_WriteLine(1U, "  DREHMODUS AKTIV");
+        (void)Display_WriteLine(2U, "  Z-Achse steuert");
     }
     else
     {
-        display_motor_B();
+        (void)Display_WriteLine(1U, " NORMALMODUS AKTIV");
+        (void)Display_WriteLine(2U, "  X/Y-Fahrt aktiv");
+    }
+
+    (void)Display_WriteLine(3U, "--------------------");
+}
+
+
+/*
+ * Aktuell benötigte Displayseite ausgeben.
+ */
+static void update_display(uint32_t current_time)
+{
+    /*
+     * Modusmeldung für eine Sekunde anzeigen.
+     */
+    if (mode_message_active != 0U)
+    {
+        if ((uint32_t)(current_time -
+                       mode_message_start_time) <
+            MODE_MESSAGE_TIME_MS)
+        {
+            display_mode_message();
+            return;
+        }
+
+        /*
+         * Meldungszeit ist abgelaufen.
+         */
+        mode_message_active = 0U;
+        display_page = DISPLAY_PAGE_MAIN;
+    }
+
+    /*
+     * Normale Displayseiten anzeigen.
+     */
+    if (display_page == DISPLAY_PAGE_MAIN)
+    {
+        display_main_page();
+    }
+    else
+    {
+        display_details_page();
     }
 }
 
+
 HAL_StatusTypeDef communication_module_init(void)
 {
+    /*
+     * Definierter Startzustand:
+     * normale Fahrt über X und Y.
+     */
+    driving_mode = DRIVE_MODE_NORMAL;
+    display_page = DISPLAY_PAGE_MAIN;
+    mode_message_active = 0U;
+
+    power_val_MA = 0;
+    power_val_MB = 0;
+
+    previous_button_1 = 0U;
+    previous_button_2 = 0U;
+    rotation_button_ready = 0U;
+
     motor_rs485_init();
 
     if (joystick_init() != HAL_OK)
@@ -274,14 +424,45 @@ HAL_StatusTypeDef communication_module_init(void)
         return HAL_ERROR;
     }
 
+    /*
+     * Taster einmal einlesen, damit beim Start keine
+     * falsche Tastenflanke erkannt wird.
+     */
+    joystick_update();
+
+    previous_button_1 = joystick_button_1;
+    previous_button_2 = joystick_button_2;
+
+    /*
+     * Taster 2 muss beim Start losgelassen sein.
+     */
+    if (joystick_button_2 == 0U)
+    {
+        rotation_button_ready = 1U;
+    }
+    else
+    {
+        rotation_button_ready = 0U;
+    }
+
+    /*
+     * Display initialisieren und sofort die Hauptseite
+     * anzeigen. Dadurch wird der alte Displayinhalt
+     * schnellstmöglich überschrieben.
+     */
     if (Display_Init(&hi2c1) == HAL_OK)
     {
         display_available = 1U;
+
+        (void)Display_Clear();
+        display_main_page();
+
+        display_force_update = 0U;
     }
     else
     {
         /*
-         * Die Motorsteuerung darf auch ohne Display weiterlaufen.
+         * Motorsteuerung läuft auch ohne Display weiter.
          */
         display_available = 0U;
     }
@@ -289,8 +470,12 @@ HAL_StatusTypeDef communication_module_init(void)
     last_control_time = HAL_GetTick();
     last_display_time = last_control_time;
 
+    last_mode_button_time =
+        last_control_time - MODE_BUTTON_DEBOUNCE_MS;
+
     return HAL_OK;
 }
+
 
 void communication_module_process(void)
 {
@@ -304,7 +489,7 @@ void communication_module_process(void)
     motor_process_received_frames();
 
     /*
-     * Motorregelung nur alle 30 ms ausführen.
+     * Steuerung nur alle 30 ms ausführen.
      */
     if ((uint32_t)(current_time - last_control_time) <
         CONTROL_PERIOD_MS)
@@ -315,44 +500,55 @@ void communication_module_process(void)
     last_control_time = current_time;
 
     /*
-     * Joystick aktualisieren.
+     * Joystickachsen und Taster aktualisieren.
      */
     joystick_update();
 
     /*
-     * Zwischen Motor A und B auf dem Display umschalten.
+     * Taster 1: Displayseite.
      */
-    select_display_motor();
+    update_display_button();
 
     /*
-     * Leistungswerte berechnen.
+     * Taster 2: Normal-/Drehmodus.
+     */
+    update_rotation_mode_button(current_time);
+
+    /*
+     * Motorwerte aus dem aktuellen Modus berechnen.
      */
     calculate_power_values();
 
     /*
-     * Leistungsbefehle an beide Motoren übertragen.
+     * Motorbefehle alle 30 ms übertragen.
      */
     motor_send_A(power_val_MA);
     motor_send_B(power_val_MB);
 
     /*
-     * Display ungefähr viermal pro Sekunde aktualisieren.
+     * Display regelmäßig oder nach einer Änderung sofort
+     * aktualisieren.
      */
     if ((display_available != 0U) &&
-        ((uint32_t)(current_time - last_display_time) >=
-         DISPLAY_PERIOD_MS))
+        ((display_force_update != 0U) ||
+         ((uint32_t)(current_time -
+                     last_display_time) >=
+          DISPLAY_PERIOD_MS)))
     {
         last_display_time = current_time;
+        display_force_update = 0U;
 
-        update_display();
+        update_display(current_time);
     }
 }
+
 
 void communication_uart_rx_callback(
     UART_HandleTypeDef *huart)
 {
     motor_uart_rx_callback(huart);
 }
+
 
 void communication_uart_error_callback(
     UART_HandleTypeDef *huart)
