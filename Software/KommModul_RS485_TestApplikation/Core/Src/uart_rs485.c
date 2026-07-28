@@ -8,6 +8,30 @@
 #define RS485_START_BYTE       0xC5U
 #define RS485_QUEUE_SIZE       16U
 #define RS485_RAW_QUEUE_SIZE   2048U
+#define RS485_TX_PERIOD_MS     30U
+#define RS485_BUS_IDLE_MS      2U
+#define RS485_TX_TIMEOUT_MS    10U
+#define RS485_TELEMETRY_COUNT  6U
+
+/*
+ * Test values sent by the simulated motor.
+ *
+ * Units match the evaluation in Software_Joystick_Modul:
+ * - speed:       1 rpm
+ * - power:       1 W
+ * - voltage:     0.1 V
+ * - capacity:    1 %
+ * - GPS speed:   0.1 m/s
+ * - temperature: 0.1 degrees Celsius
+ *
+ * All values can be edited through Live Expressions.
+ */
+volatile uint16_t rs485_test_motor_speed_rpm = 2450U;
+volatile uint16_t rs485_test_motor_power_w = 2350U;
+volatile uint16_t rs485_test_battery_voltage_01v = 512U;
+volatile uint8_t rs485_test_battery_capacity_percent = 87U;
+volatile uint16_t rs485_test_gps_speed_01ms = 84U;
+volatile uint16_t rs485_test_motor_temperature_01c = 485U;
 
 /* Frame-Puffer für erkannte 5-Byte-Frames */
 static volatile rs485_frame_t frame_queue[RS485_QUEUE_SIZE];
@@ -41,6 +65,17 @@ static volatile uint32_t noise_error_count = 0;
 static volatile uint32_t overrun_error_count = 0;
 static volatile uint32_t parity_error_count = 0;
 
+/* Transmit diagnostics and scheduler state. */
+static volatile uint32_t tx_frame_count = 0U;
+static volatile uint32_t tx_error_count = 0U;
+static volatile uint8_t last_tx_command = 0U;
+static volatile uint16_t last_tx_value = 0U;
+static volatile uint8_t last_tx_frame[RS485_FRAME_LENGTH] = {0U};
+
+static volatile uint32_t last_rx_byte_time = 0U;
+static uint32_t last_tx_time = 0U;
+static uint8_t telemetry_index = 0U;
+
 /* Parser-Zustand für 5-Byte-Frames */
 static uint8_t rx_frame[RS485_FRAME_LENGTH];
 static uint8_t rx_index = 0;
@@ -51,6 +86,151 @@ static volatile uint8_t rs485_rx_byte = 0;
 static uint8_t rs485_checksum4(const uint8_t *data)
 {
     return (uint8_t)((data[0] ^ data[1] ^ data[2] ^ data[3]) & 0x7FU);
+}
+
+static uint16_t rs485_limit_value(uint16_t value, uint16_t maximum)
+{
+    if (value > maximum)
+    {
+        return maximum;
+    }
+
+    return value;
+}
+
+static void rs485_build_telemetry_frame(
+    uint8_t command,
+    uint16_t value,
+    uint8_t frame[RS485_FRAME_LENGTH])
+{
+    uint16_t limited_value;
+
+    frame[0] = RS485_START_BYTE;
+    frame[1] = command;
+
+    if (command == RS485_COMMAND_BATTERY_CAPACITY)
+    {
+        limited_value = rs485_limit_value(value, 100U);
+        frame[2] = 0U;
+        frame[3] = (uint8_t)limited_value;
+    }
+    else if (command == RS485_COMMAND_MOTOR_TEMP)
+    {
+        /*
+         * The receiver uses only the lower four bits of DataH for
+         * motor temperature. The representable range is 0..2047.
+         */
+        limited_value = rs485_limit_value(value, 0x07FFU);
+        frame[2] = (uint8_t)((limited_value >> 7U) & 0x0FU);
+        frame[3] = (uint8_t)(limited_value & 0x7FU);
+    }
+    else
+    {
+        limited_value = rs485_limit_value(value, 0x3FFFU);
+        frame[2] = (uint8_t)((limited_value >> 7U) & 0x7FU);
+        frame[3] = (uint8_t)(limited_value & 0x7FU);
+    }
+
+    frame[4] = rs485_checksum4(frame);
+}
+
+static HAL_StatusTypeDef rs485_transmit_frame(
+    const uint8_t frame[RS485_FRAME_LENGTH])
+{
+    HAL_StatusTypeDef status;
+
+    /*
+     * RTS high selects transmit mode on the external RS485
+     * transceiver.
+     */
+    HAL_GPIO_WritePin(
+        RS485_RTS_GPIO_Port,
+        RS485_RTS_Pin,
+        GPIO_PIN_SET);
+
+    status = HAL_UART_Transmit(
+        &huart1,
+        (uint8_t *)frame,
+        RS485_FRAME_LENGTH,
+        RS485_TX_TIMEOUT_MS);
+
+    /*
+     * Return to receive mode immediately after the complete frame.
+     */
+    HAL_GPIO_WritePin(
+        RS485_RTS_GPIO_Port,
+        RS485_RTS_Pin,
+        GPIO_PIN_RESET);
+
+    return status;
+}
+
+static void rs485_send_next_telemetry(void)
+{
+    uint8_t command;
+    uint16_t value;
+    uint8_t frame[RS485_FRAME_LENGTH];
+    HAL_StatusTypeDef status;
+
+    switch (telemetry_index)
+    {
+        case 0U:
+            command = RS485_COMMAND_MOTOR_SPEED;
+            value = rs485_test_motor_speed_rpm;
+            break;
+
+        case 1U:
+            command = RS485_COMMAND_MOTOR_POWER;
+            value = rs485_test_motor_power_w;
+            break;
+
+        case 2U:
+            command = RS485_COMMAND_BATTERY_VOLTAGE;
+            value = rs485_test_battery_voltage_01v;
+            break;
+
+        case 3U:
+            command = RS485_COMMAND_BATTERY_CAPACITY;
+            value = rs485_test_battery_capacity_percent;
+            break;
+
+        case 4U:
+            command = RS485_COMMAND_GPS_SPEED;
+            value = rs485_test_gps_speed_01ms;
+            break;
+
+        default:
+            command = RS485_COMMAND_MOTOR_TEMP;
+            value = rs485_test_motor_temperature_01c;
+            break;
+    }
+
+    rs485_build_telemetry_frame(command, value, frame);
+
+    for (uint8_t i = 0U; i < RS485_FRAME_LENGTH; i++)
+    {
+        last_tx_frame[i] = frame[i];
+    }
+
+    last_tx_command = command;
+    last_tx_value = value;
+
+    status = rs485_transmit_frame(frame);
+
+    if (status == HAL_OK)
+    {
+        tx_frame_count++;
+    }
+    else
+    {
+        tx_error_count++;
+    }
+
+    telemetry_index++;
+    if (telemetry_index >= RS485_TELEMETRY_COUNT)
+    {
+        telemetry_index = 0U;
+    }
 }
 
 static void rs485_raw_queue_push(uint8_t byte)
@@ -116,6 +296,9 @@ static void rs485_process_byte(uint8_t byte, uint32_t error_flags)
 
 void uart_rs485_start(void)
 {
+    HAL_StatusTypeDef status;
+    uint32_t current_time;
+
     /*
      * RTS Low:
      * Empfänger aktiv, Sender deaktiviert.
@@ -126,10 +309,41 @@ void uart_rs485_start(void)
      */
     HAL_GPIO_WritePin(RS485_RTS_GPIO_Port, RS485_RTS_Pin, GPIO_PIN_RESET);
 
-    HAL_StatusTypeDef status;
+    current_time = HAL_GetTick();
+    last_tx_time = current_time;
+    last_rx_byte_time = current_time;
+    telemetry_index = 0U;
+
     status = HAL_UART_Receive_IT(&huart1, (uint8_t *)&rs485_rx_byte, 1);
 
     printf("USART1 Receive_IT status = %d\n", status);
+}
+
+void uart_rs485_process(void)
+{
+    uint32_t current_time;
+
+    current_time = HAL_GetTick();
+
+    if ((uint32_t)(current_time - last_tx_time) <
+        RS485_TX_PERIOD_MS)
+    {
+        return;
+    }
+
+    /*
+     * Do not start a transmission in the middle of an incoming
+     * frame. Two quiet milliseconds provide a safe frame boundary
+     * at 38400 baud.
+     */
+    if ((uint32_t)(current_time - last_rx_byte_time) <
+        RS485_BUS_IDLE_MS)
+    {
+        return;
+    }
+
+    last_tx_time = current_time;
+    rs485_send_next_telemetry();
 }
 
 bool uart_rs485_get_raw_byte(uint8_t *byte)
@@ -238,6 +452,39 @@ uint32_t uart_rs485_get_parity_error_count(void)
     return parity_error_count;
 }
 
+uint32_t uart_rs485_get_tx_frame_count(void)
+{
+    return tx_frame_count;
+}
+
+uint32_t uart_rs485_get_tx_error_count(void)
+{
+    return tx_error_count;
+}
+
+uint8_t uart_rs485_get_last_tx_command(void)
+{
+    return last_tx_command;
+}
+
+uint16_t uart_rs485_get_last_tx_value(void)
+{
+    return last_tx_value;
+}
+
+void uart_rs485_get_last_tx_frame(uint8_t frame[RS485_FRAME_LENGTH])
+{
+    if (frame == 0)
+    {
+        return;
+    }
+
+    for (uint8_t i = 0U; i < RS485_FRAME_LENGTH; i++)
+    {
+        frame[i] = last_tx_frame[i];
+    }
+}
+
 /*
  * RX-Callback:
  * So kurz wie möglich halten.
@@ -249,6 +496,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     {
         rx_byte_count++;
         last_rx_byte = rs485_rx_byte;
+        last_rx_byte_time = HAL_GetTick();
 
         /*
          * Alles roh speichern.

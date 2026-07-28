@@ -129,17 +129,22 @@ int main(void)
   /* USER CODE BEGIN 2 */
   uart_rs485_start();
 
-  printf("\nRS485 Sniffer gestartet\n");
-  printf("USART1: RS485 RX, 38400 Baud\n");
+  printf("\nRS485 Sende-/Empfangstest gestartet\n");
+  printf("USART1: RS485 TX/RX, 38400 Baud\n");
   printf("USART2: Debug-Ausgabe, 115200 Baud\n\n");
+  printf("Alle 30 ms wird ein Telemetrieframe gesendet.\n");
+  printf("Reihenfolge: rpm, Leistung, Spannung, Kapazitaet, "
+         "Geschwindigkeit, Temperatur\n\n");
 
   /* Nur für Softwaretest. Später bei echter Messung auskommentieren. */
   //uart_rs485_test_inject_frame();
 
   rs485_frame_t frame = {0};
-  uint8_t raw_byte = 0;
-  uint8_t raw_count_in_line = 0;
+  //uint8_t raw_byte = 0;
+  //uint8_t raw_count_in_line = 0;
   uint32_t last_diag = 0;
+  uint32_t last_printed_tx_count = 0U;
+  uint8_t last_tx_frame[RS485_FRAME_LENGTH] = {0U};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -149,6 +154,29 @@ int main(void)
       /* USER CODE END WHILE */
 
 	  /* USER CODE BEGIN 3 */
+
+	  /*
+	   * Bidirektionalen RS485-Test bedienen.
+	   * Empfang läuft weiterhin per UART-Interrupt.
+	   */
+	  uart_rs485_process();
+
+	  /*
+	   * Jedes erfolgreich gesendete Frame auf USART2 ausgeben.
+	   */
+	  if (uart_rs485_get_tx_frame_count() != last_printed_tx_count)
+	  {
+	      last_printed_tx_count = uart_rs485_get_tx_frame_count();
+	      uart_rs485_get_last_tx_frame(last_tx_frame);
+
+	      printf("%lu ms TX:    %02X %02X %02X %02X %02X\n",
+	             (unsigned long)HAL_GetTick(),
+	             last_tx_frame[0],
+	             last_tx_frame[1],
+	             last_tx_frame[2],
+	             last_tx_frame[3],
+	             last_tx_frame[4]);
+	  }
 
 	  /*
 	   * Rohbytes ausgeben.
@@ -190,11 +218,17 @@ int main(void)
 	  {
 	      last_diag = HAL_GetTick();
 
-	      printf("\n%lu ms DIAG rx=%lu last=%02X raw_lost=%lu frame_lost=%lu "
+	      printf("\n%lu ms DIAG rx=%lu tx=%lu tx_err=%lu "
+	             "last_tx_cmd=%02X last_tx_value=%u "
+	             "last_rx=%02X raw_lost=%lu frame_lost=%lu "
 	             "uart_err=%lu last_err=0x%08lX ISR=0x%08lX "
 	             "FE=%lu NE=%lu ORE=%lu PE=%lu\n",
 	             (unsigned long)HAL_GetTick(),
 	             (unsigned long)uart_rs485_get_rx_byte_count(),
+	             (unsigned long)uart_rs485_get_tx_frame_count(),
+	             (unsigned long)uart_rs485_get_tx_error_count(),
+	             uart_rs485_get_last_tx_command(),
+	             (unsigned int)uart_rs485_get_last_tx_value(),
 	             uart_rs485_get_last_rx_byte(),
 	             (unsigned long)uart_rs485_get_raw_lost_count(),
 	             (unsigned long)uart_rs485_get_lost_frame_count(),
