@@ -34,47 +34,61 @@ uint8_t joystick_button_2 = 0U;
 
 static int16_t scale_axis(uint16_t adc_value)
 {
+    int32_t adc;
+    int32_t adc_min;
+    int32_t adc_center;
+    int32_t adc_max;
     int32_t result;
 
-    if (adc_value >= JOYSTICK_ADC_CENTER)
-    {
-        /*
-         * Positive Hälfte:
-         * ADC-Mitte bis ADC-Maximum wird auf 0 bis 127 normiert.
-         */
-        result =
-            ((int32_t)(adc_value - JOYSTICK_ADC_CENTER) *
-             JOYSTICK_MAX_VALUE) /
-            (JOYSTICK_ADC_MAX - JOYSTICK_ADC_CENTER);
-    }
-    else
-    {
-        /*
-         * Negative Hälfte:
-         * ADC-Mitte bis ADC-Minimum wird auf 0 bis -127 normiert.
-         */
-        result =
-            -((int32_t)(JOYSTICK_ADC_CENTER - adc_value) *
-              JOYSTICK_MAX_VALUE) /
-            (JOYSTICK_ADC_CENTER - JOYSTICK_ADC_MIN);
-    }
+    /*
+     * Alle Werte ausdrücklich vorzeichenbehaftet behandeln.
+     */
+    adc        = (int32_t)adc_value;
+    adc_min    = (int32_t)JOYSTICK_ADC_MIN;
+    adc_center = (int32_t)JOYSTICK_ADC_CENTER;
+    adc_max    = (int32_t)JOYSTICK_ADC_MAX;
 
-    if (result > JOYSTICK_MAX_VALUE)
+    /*
+     * Negative Hälfte:
+     * ADC-Minimum bis ADC-Mitte wird auf -127 bis 0 skaliert.
+     */
+    if (adc < adc_center)
     {
-        result = JOYSTICK_MAX_VALUE;
-    }
-
-    if (result < JOYSTICK_MIN_VALUE)
-    {
-        result = JOYSTICK_MIN_VALUE;
+        if (adc <= adc_min)
+        {
+            result = JOYSTICK_MIN_VALUE;
+        }
+        else
+        {
+            result =
+                -((adc_center - adc) * JOYSTICK_MAX_VALUE) /
+                 (adc_center - adc_min);
+        }
     }
 
     /*
-     * Kleine Abweichungen um die mechanische Mittelstellung
-     * werden ignoriert.
+     * Positive Hälfte:
+     * ADC-Mitte bis ADC-Maximum wird auf 0 bis +127 skaliert.
      */
-    if ((result > -JOYSTICK_DEAD_ZONE) &&
-        (result < JOYSTICK_DEAD_ZONE))
+    else
+    {
+        if (adc >= adc_max)
+        {
+            result = JOYSTICK_MAX_VALUE;
+        }
+        else
+        {
+            result =
+                ((adc - adc_center) * JOYSTICK_MAX_VALUE) /
+                (adc_max - adc_center);
+        }
+    }
+
+    /*
+     * Totzone einschließlich der Grenzwerte.
+     */
+    if ((result >= -JOYSTICK_DEAD_ZONE) &&
+        (result <= JOYSTICK_DEAD_ZONE))
     {
         result = 0;
     }
@@ -95,10 +109,14 @@ HAL_StatusTypeDef joystick_init(void)
     }
 
     /*
+     * CubeMX aktiviert den DMA2-Channel2-Interrupt automatisch.
+     * Für das direkte Lesen des zirkulären DMA-Puffers wird er
+     * nicht benötigt.
+     */
+    HAL_NVIC_DisableIRQ(DMA2_Channel2_IRQn);
+
+    /*
      * ADC mit zirkulärem DMA starten.
-     *
-     * Der Pointer ist hier notwendig, weil die HAL wissen muss,
-     * an welche Speicheradresse der DMA schreiben soll.
      */
     if (HAL_ADC_Start_DMA(
             &hadc4,

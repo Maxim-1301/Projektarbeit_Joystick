@@ -26,8 +26,8 @@
  * 3850 eingestellt werden.
  */
 #define JOYSTICK_ADC_MIN         0U
-#define JOYSTICK_ADC_CENTER      2048U
-#define JOYSTICK_ADC_MAX         4095U
+#define JOYSTICK_ADC_CENTER      1960U
+#define JOYSTICK_ADC_MAX         3920U
 
 /*
  * Globale Werte, ähnlich zum Aufbau der Bachelorarbeit.
