@@ -16,7 +16,7 @@
  */
 #define JOYSTICK_MIN_VALUE       (-127)
 #define JOYSTICK_MAX_VALUE       127
-#define JOYSTICK_DEAD_ZONE       5
+#define JOYSTICK_DEAD_ZONE       15
 
 /*
  * ADC-Kalibrierwerte.
@@ -26,8 +26,8 @@
  * 3850 eingestellt werden.
  */
 #define JOYSTICK_ADC_MIN         0U
-#define JOYSTICK_ADC_CENTER      1960U
-#define JOYSTICK_ADC_MAX         3920U
+#define JOYSTICK_ADC_CENTER      1880U
+#define JOYSTICK_ADC_MAX         3730U
 
 /*
  * Globale Werte, ähnlich zum Aufbau der Bachelorarbeit.

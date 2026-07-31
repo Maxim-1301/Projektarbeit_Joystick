@@ -123,15 +123,23 @@ static void calculate_power_values(void)
     {
         if (con_x >= 0)
         {
-            /* Rückwärts und rechts */
-            power_val_MA = reduced_power;
-            power_val_MB = con_y;
+            /*
+             * Rückwärts nach rechts:
+             * linker Motor A fährt voll rückwärts,
+             * rechter Motor B wird reduziert.
+             */
+            power_val_MA = con_y;
+            power_val_MB = reduced_power;
         }
         else
         {
-            /* Rückwärts und links */
-            power_val_MA = con_y;
-            power_val_MB = reduced_power;
+            /*
+             * Rückwärts nach links:
+             * linker Motor A wird reduziert,
+             * rechter Motor B fährt voll rückwärts.
+             */
+            power_val_MA = reduced_power;
+            power_val_MB = con_y;
         }
     }
 }
@@ -230,6 +238,9 @@ static void display_main_page(void)
 {
     char line[32];
 
+    uint32_t gps_speed_kmh_A;
+    uint32_t gps_speed_kmh_B;
+
     /*
      *         11111111112
      * 12345678901234567890
@@ -267,17 +278,33 @@ static void display_main_page(void)
     (void)Display_WriteLine(2U, line);
 
     /*
-     * Geschwindigkeit in m/s.
-     * gps_speed ist in 0,1 m/s gespeichert.
+     * gps_speed_A und gps_speed_B werden vom Motor
+     * in der Einheit 0,1 m/s empfangen.
+     *
+     * Umrechnung in 0,1 km/h:
+     *
+     * Geschwindigkeit_kmh_x10 =
+     * Geschwindigkeit_ms_x10 * 3,6
+     *
+     * Da keine Gleitkommazahlen verwendet werden:
+     * Wert * 36 / 10
+     *
+     * Die zusätzlichen 5 dienen zum korrekten Runden.
      */
+    gps_speed_kmh_A =
+        (((uint32_t)gps_speed_A * 36U) + 5U) / 10U;
+
+    gps_speed_kmh_B =
+        (((uint32_t)gps_speed_B * 36U) + 5U) / 10U;
+
     (void)snprintf(
         line,
         sizeof(line),
-        "v[m/s]: %2u.%1u   %3u.%1u",
-        (unsigned int)(gps_speed_A / 10U),
-        (unsigned int)(gps_speed_A % 10U),
-        (unsigned int)(gps_speed_B / 10U),
-        (unsigned int)(gps_speed_B % 10U));
+        "v[km/h]:%3u.%1u %3u.%1u",
+        (unsigned int)(gps_speed_kmh_A / 10U),
+        (unsigned int)(gps_speed_kmh_A % 10U),
+        (unsigned int)(gps_speed_kmh_B / 10U),
+        (unsigned int)(gps_speed_kmh_B % 10U));
 
     (void)Display_WriteLine(3U, line);
 }
@@ -361,11 +388,113 @@ static void display_mode_message(void)
 }
 
 
+static void display_fault_line(
+    uint8_t row,
+    char motor,
+    uint16_t fault)
+{
+    char line[21];
+
+    switch (fault)
+    {
+        case 0x01U:
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:Kommunikation 0x01",
+                motor);
+            break;
+
+        case 0x02U:
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:Ueberspg. 0x02",
+                motor);
+            break;
+
+        case 0x04U:
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:Unterspg. 0x04",
+                motor);
+            break;
+
+        case 0x08U:
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:Ueberstrom 0x08",
+                motor);
+            break;
+
+        case 0x10U:
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:Blockiert 0x10",
+                motor);
+            break;
+
+        case 0x00U:
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:OK",
+                motor);
+            break;
+
+        default:
+            /*
+             * Möglicherweise sind mehrere Fehlerbits
+             * gleichzeitig gesetzt.
+             */
+            (void)snprintf(
+                line,
+                sizeof(line),
+                "%c:Fehler 0x%02X",
+                motor,
+                (unsigned int)fault);
+            break;
+    }
+
+    (void)Display_WriteLine(row, line);
+}
+
+
+static void display_fault_page(void)
+{
+    (void)Display_WriteLine(
+        0U,
+        "*** MOTORFEHLER ***");
+
+    display_fault_line(
+        1U,
+        'A',
+        motor_fault_A);
+
+    display_fault_line(
+        2U,
+        'B',
+        motor_fault_B);
+
+    (void)Display_WriteLine(
+        3U,
+        "Motoren ausschalten");
+}
+
 /*
  * Aktuell benötigte Displayseite ausgeben.
  */
 static void update_display(uint32_t current_time)
 {
+	if ((motor_state_A == MOTOR_STATE_FAULT) ||
+	    (motor_state_B == MOTOR_STATE_FAULT))
+	{
+	    display_fault_page();
+	    return;
+	}
     /*
      * Modusmeldung für eine Sekunde anzeigen.
      */

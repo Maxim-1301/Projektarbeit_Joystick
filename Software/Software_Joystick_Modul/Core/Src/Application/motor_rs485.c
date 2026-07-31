@@ -21,6 +21,13 @@ volatile uint8_t rec_buffer_B[MOTOR_FRAME_SIZE] = {0U};
 static volatile uint8_t receive_byte_A = 0U;
 static volatile uint8_t receive_byte_B = 0U;
 
+/* Motor States */
+volatile uint8_t motor_state_A = MOTOR_STATE_WAIT_VOLTAGE;
+volatile uint8_t motor_state_B = MOTOR_STATE_WAIT_VOLTAGE;
+
+volatile uint16_t motor_fault_A = 0U;
+volatile uint16_t motor_fault_B = 0U;
+
 /* Position innerhalb des Empfangsframes */
 volatile uint8_t UARTA_i = 0U;
 volatile uint8_t UARTB_i = 0U;
@@ -150,6 +157,12 @@ static void receive_next_byte_B(void)
 
 void motor_rs485_init(void)
 {
+	motor_state_A = MOTOR_STATE_WAIT_VOLTAGE;
+	motor_state_B = MOTOR_STATE_WAIT_VOLTAGE;
+
+	motor_fault_A = 0U;
+	motor_fault_B = 0U;
+
     UARTA_i = 0U;
     UARTB_i = 0U;
 
@@ -226,7 +239,7 @@ void motor_send_A(int16_t power)
     uint8_t direction;
     uint8_t magnitude;
 
-    if (power == 0)
+    if (motor_state_A == MOTOR_STATE_FAULT)
     {
         send_frame_A(
             MOTOR_STOP,
@@ -235,6 +248,37 @@ void motor_send_A(int16_t power)
 
         return;
     }
+
+    if (motor_state_A == MOTOR_STATE_WAIT_VOLTAGE)
+    {
+        send_frame_A(
+            POWER_THROTTLE,
+            EMPTY_DATABYTE,
+            EMPTY_DATABYTE);
+
+        return;
+    }
+
+    if (motor_state_A == MOTOR_STATE_STARTING)
+    {
+        send_frame_A(
+            MOTOR_START,
+            EMPTY_DATABYTE,
+            EMPTY_DATABYTE);
+
+        return;
+    }
+
+    if (power == 0)
+    {
+        send_frame_A(
+            POWER_THROTTLE,
+            EMPTY_DATABYTE,
+            EMPTY_DATABYTE);
+
+        return;
+    }
+
 
     if (power > 0)
     {
@@ -263,7 +307,7 @@ void motor_send_B(int16_t power)
     uint8_t direction;
     uint8_t magnitude;
 
-    if (power == 0)
+    if (motor_state_B == MOTOR_STATE_FAULT)
     {
         send_frame_B(
             MOTOR_STOP,
@@ -272,6 +316,37 @@ void motor_send_B(int16_t power)
 
         return;
     }
+
+    if (motor_state_B == MOTOR_STATE_WAIT_VOLTAGE)
+    {
+        send_frame_B(
+            POWER_THROTTLE,
+            EMPTY_DATABYTE,
+            EMPTY_DATABYTE);
+
+        return;
+    }
+
+    if (motor_state_B == MOTOR_STATE_STARTING)
+    {
+        send_frame_B(
+            MOTOR_START,
+            EMPTY_DATABYTE,
+            EMPTY_DATABYTE);
+
+        return;
+    }
+
+    if (power == 0)
+    {
+        send_frame_B(
+            POWER_THROTTLE,
+            EMPTY_DATABYTE,
+            EMPTY_DATABYTE);
+
+        return;
+    }
+
 
     if (power > 0)
     {
@@ -376,8 +451,54 @@ static void evaluate_frame_A(void)
         ((uint16_t)(rec_buffer_A[2] & 0x7FU) << 7U) |
         rec_buffer_A[3];
 
+    if ((rec_buffer_A[1] == VOLTAGE_STATUS) &&
+        (motor_state_A != MOTOR_STATE_READY) &&
+        (motor_state_A != MOTOR_STATE_FAULT))
+    {
+        if (rec_buffer_A[3] == VOLTAGE_NOT_READY)
+        {
+            motor_state_A = MOTOR_STATE_WAIT_VOLTAGE;
+        }
+        else if (rec_buffer_A[3] == VOLTAGE_READY)
+        {
+            if (rec_buffer_A[2] == EMPTY_DATABYTE)
+            {
+                motor_state_A = MOTOR_STATE_STARTING;
+            }
+            else
+            {
+                motor_fault_A = rec_buffer_A[2];
+                motor_state_A = MOTOR_STATE_FAULT;
+            }
+        }
+    }
+    else if ((motor_state_A == MOTOR_STATE_STARTING) &&
+             (rec_buffer_A[1] != VOLTAGE_STATUS))
+    {
+        /*
+         * Das erste normale Statusframe nach dem
+         * START-Befehl bestätigt den Betriebszustand.
+         */
+        motor_state_A = MOTOR_STATE_READY;
+    }
+
     switch (rec_buffer_A[1])
     {
+		case VOLTAGE_STATUS:
+			/*
+			 * Wurde bereits für die Startsequenz ausgewertet.
+			 * Der Wert wird nicht auf dem Display angezeigt.
+			 */
+			break;
+
+		case MOTOR_STATUS:
+			if (received_value != 0U)
+			{
+				motor_fault_A = received_value;
+				motor_state_A = MOTOR_STATE_FAULT;
+			}
+			break;
+
         case MOTOR_SPEED:
             /*
              * Einheit: 1 rpm
@@ -446,8 +567,46 @@ static void evaluate_frame_B(void)
         ((uint16_t)(rec_buffer_B[2] & 0x7FU) << 7U) |
         rec_buffer_B[3];
 
+    if ((rec_buffer_B[1] == VOLTAGE_STATUS) &&
+        (motor_state_B != MOTOR_STATE_READY) &&
+        (motor_state_B != MOTOR_STATE_FAULT))
+    {
+        if (rec_buffer_B[3] == VOLTAGE_NOT_READY)
+        {
+            motor_state_B = MOTOR_STATE_WAIT_VOLTAGE;
+        }
+        else if (rec_buffer_B[3] == VOLTAGE_READY)
+        {
+            if (rec_buffer_B[2] == EMPTY_DATABYTE)
+            {
+                motor_state_B = MOTOR_STATE_STARTING;
+            }
+            else
+            {
+                motor_fault_B = rec_buffer_B[2];
+                motor_state_B = MOTOR_STATE_FAULT;
+            }
+        }
+    }
+    else if ((motor_state_B == MOTOR_STATE_STARTING) &&
+             (rec_buffer_B[1] != VOLTAGE_STATUS))
+    {
+        motor_state_B = MOTOR_STATE_READY;
+    }
+
     switch (rec_buffer_B[1])
     {
+		case VOLTAGE_STATUS:
+			break;
+
+		case MOTOR_STATUS:
+			if (received_value != 0U)
+			{
+				motor_fault_B = received_value;
+				motor_state_B = MOTOR_STATE_FAULT;
+			}
+			break;
+
         case MOTOR_SPEED:
             motor_speed_B = received_value;
             break;

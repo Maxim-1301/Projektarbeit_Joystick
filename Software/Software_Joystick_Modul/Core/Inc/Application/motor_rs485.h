@@ -18,11 +18,23 @@
 #define ADDR_MAIN_SYSTEM         0xC5U
 
 /* Befehle an den Motor */
+#define MOTOR_START              0x23U
 #define POWER_THROTTLE           0x25U
 #define MOTOR_STOP               0x26U
 #define EMPTY_DATABYTE           0x00U
 
-#define MOTOR_MAX_POWER          127
+#define VOLTAGE_STATUS           0x1CU
+#define MOTOR_STATUS             0x22U
+
+#define VOLTAGE_NOT_READY        0x1CU
+#define VOLTAGE_READY            0x1DU
+
+#define MOTOR_STATE_WAIT_VOLTAGE 0U
+#define MOTOR_STATE_STARTING     1U
+#define MOTOR_STATE_READY        2U
+#define MOTOR_STATE_FAULT        3U
+
+#define MOTOR_MAX_POWER          80
 
 /* Empfangene Motorstatus-Kommandos */
 #define BATTERY_VOLTAGE          0x1DU
@@ -33,6 +45,12 @@
 #define GPS_SPEED                0x26U
 
 /* Empfangspuffer */
+extern volatile uint8_t motor_state_A;
+extern volatile uint8_t motor_state_B;
+
+extern volatile uint16_t motor_fault_A;
+extern volatile uint16_t motor_fault_B;
+
 extern volatile uint8_t rec_buffer_A[MOTOR_FRAME_SIZE];
 extern volatile uint8_t rec_buffer_B[MOTOR_FRAME_SIZE];
 
